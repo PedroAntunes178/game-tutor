@@ -85,25 +85,33 @@ A modern web application that teaches users how to play common get-together game
 ```
 src/
 ├── app/
-│   ├── api/chat/          # Gemini API integration
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
+│   ├── api/chat/         # Gemini API integration
+|   ├── game/[id]/
+│       └── page.tsx      # Game tutorial page
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Main page
 ├── components/
-│   ├── ChatInterface.tsx  # AI chat component
 │   ├── FilterBar.tsx     # Search and filter component
 │   └── GameCard.tsx      # Game display component
 ├── data/
-│   └── games.json        # Game database
-├── lib/
-│   └── gemini.ts         # Gemini API utilities
+│   ├── index.ts          # Game data index file
+│   └── games/            # Individual game JSON files
+│       ├── uno.json
+│       ├── charades.json
+│       ├── monopoly.json
+│       ├── two-truths-one-lie.json
+│       ├── poker.json
+│       └── scavenger-hunt.json
 └── types/
     └── game.ts           # TypeScript definitions
 ```
 
 ## Adding New Games
 
-To add new games to the database, edit `src/data/games.json` with the following structure:
+To add new games to the database:
+
+1. Create a new JSON file in `src/data/games/` with the following structure:
 
 ```json
 {
@@ -121,6 +129,8 @@ To add new games to the database, edit `src/data/games.json` with the following 
   "tags": ["relevant", "tags"]
 }
 ```
+
+2. Update `src/data/index.ts` to import and include the new game in the games array.
 
 ## Deployment
 

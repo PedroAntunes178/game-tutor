@@ -1,0 +1,19 @@
+{
+  "id": "charades",
+  "name": "Charades",
+  "category": "icebreaker-games",
+  "minPlayers": 4,
+  "maxPlayers": 20,
+  "ageRange": "8+",
+  "duration": "15-45 minutes",
+  "difficulty": "Easy",
+  "description": "A classic acting game where players guess words or phrases through mime.",
+  "equipment": ["Paper", "Pen", "Timer (optional)"],
+  "basicRules": [
+    "Write words/phrases on paper slips",
+    "Players take turns acting without speaking",
+    "Team members guess within time limit",
+    "Points awarded for correct guesses"
+  ],
+  "tags": ["party", "acting", "team-building", "indoor"]
+}

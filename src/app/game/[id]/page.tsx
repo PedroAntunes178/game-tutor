@@ -1,19 +1,13 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft, Users, Clock, Brain, Settings } from 'lucide-react';
-import games from '@/data/games.json';
+import { ArrowLeft, Users, Clock, Brain } from 'lucide-react';
+import games from '@/data';
 import { Game } from '@/types/game';
 
-interface GamePageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function GamePage({ params }: GamePageProps) {
+export default function GamePage() {
   const router = useRouter();
-  const { id } = useParams();
+  const { id } = useParams() as { id: string };
 
   const getCategoryColor = (category: string) => {
     switch (category) {

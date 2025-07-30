@@ -1,0 +1,19 @@
+{
+  "id": "uno",
+  "name": "UNO",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 10,
+  "ageRange": "7+",
+  "duration": "30 minutes",
+  "difficulty": "Easy",
+  "description": "A classic card matching game where players race to empty their hands.",
+  "equipment": ["UNO deck (108 cards)"],
+  "basicRules": [
+    "Each player starts with 7 cards",
+    "Match cards by color, number, or symbol",
+    "Say 'UNO' when you have one card left",
+    "First player to empty their hand wins"
+  ],
+  "tags": ["family-friendly", "quick-play", "indoor"]
+}

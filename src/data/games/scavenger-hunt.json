@@ -1,0 +1,19 @@
+{
+  "id": "scavenger-hunt",
+  "name": "Scavenger Hunt",
+  "category": "get-together-games",
+  "minPlayers": 4,
+  "maxPlayers": 50,
+  "ageRange": "6+",
+  "duration": "30-90 minutes",
+  "difficulty": "Medium",
+  "description": "A searching game where teams find items or complete tasks from a list.",
+  "equipment": ["List of items/tasks", "Pens", "Bags for collecting"],
+  "basicRules": [
+    "Create a list of items to find or tasks to complete",
+    "Divide into teams",
+    "Set time limit and boundaries",
+    "Team finding most items wins"
+  ],
+  "tags": ["outdoor", "team-building", "adventure", "active"]
+}

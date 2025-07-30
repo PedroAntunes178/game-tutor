@@ -1,0 +1,19 @@
+{
+  "id": "poker",
+  "name": "Texas Hold'em Poker",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 10,
+  "ageRange": "18+",
+  "duration": "30-120 minutes",
+  "difficulty": "Hard",
+  "description": "A strategic card game involving betting, bluffing, and hand rankings.",
+  "equipment": ["Standard 52-card deck", "Poker chips or betting tokens"],
+  "basicRules": [
+    "Each player gets 2 hole cards",
+    "5 community cards are dealt in stages",
+    "Players make the best 5-card hand",
+    "Betting rounds determine the winner"
+  ],
+  "tags": ["strategy", "betting", "adult", "indoor"]
+}

@@ -1,7 +1,7 @@
 'use client';
 
 import { Game } from '@/types/game';
-import { Users, Clock, Star } from 'lucide-react';
+import { Users, Clock } from 'lucide-react';
 
 interface GameCardProps {
   game: Game;

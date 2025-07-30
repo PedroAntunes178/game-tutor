@@ -1,0 +1,19 @@
+{
+  "id": "monopoly",
+  "name": "Monopoly",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 8,
+  "ageRange": "8+",
+  "duration": "60-180 minutes",
+  "difficulty": "Medium",
+  "description": "A property trading board game where players buy, rent, and develop properties.",
+  "equipment": ["Monopoly board", "Money", "Property cards", "Houses", "Hotels", "Dice", "Player tokens"],
+  "basicRules": [
+    "Players move around the board buying properties",
+    "Collect rent from other players",
+    "Build houses and hotels to increase rent",
+    "Last player remaining wins"
+  ],
+  "tags": ["strategy", "family", "indoor", "long-game"]
+}

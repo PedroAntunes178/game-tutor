@@ -1,0 +1,19 @@
+{
+  "id": "two-truths-one-lie",
+  "name": "Two Truths and a Lie",
+  "category": "icebreaker-games",
+  "minPlayers": 3,
+  "maxPlayers": 15,
+  "ageRange": "10+",
+  "duration": "10-30 minutes",
+  "difficulty": "Easy",
+  "description": "A getting-to-know-you game where players guess which statement is false.",
+  "equipment": ["None required"],
+  "basicRules": [
+    "Each player thinks of two true statements and one false one",
+    "Players take turns sharing their three statements",
+    "Others guess which statement is the lie",
+    "Reveal the correct answer and share stories"
+  ],
+  "tags": ["icebreaker", "conversation", "indoor", "no-equipment"]
+}

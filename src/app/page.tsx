@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Game } from '@/types/game';
 import GameCard from '@/components/GameCard';
 import FilterBar from '@/components/FilterBar';
-import games from '@/data/games.json';
+import games from '@/data';
 import { GamepadIcon, Sparkles } from 'lucide-react';
 
 export default function Home() {
@@ -50,7 +50,7 @@ export default function Home() {
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Learn how to play your favorite games with AI-powered tutorials. 
-            From card games to board games, we'll teach you the rules and strategies step by step!
+            From card games to board games, we&apos;ll teach you the rules and strategies step by step!
           </p>
         </div>
 

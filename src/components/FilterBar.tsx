@@ -1,6 +1,6 @@
 'use client';
 
-import { Search, Filter } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 interface FilterBarProps {
   searchQuery: string;
