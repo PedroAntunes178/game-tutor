@@ -9,6 +9,15 @@ export default function GamePage() {
   const router = useRouter();
   const { id } = useParams() as { id: string };
 
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'Easy': return 'bg-green-100 text-green-800';
+      case 'Medium': return 'bg-yellow-100 text-yellow-800';
+      case 'Hard': return 'bg-red-100 text-red-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'card-games': return 'bg-blue-100 text-blue-800';
@@ -47,7 +56,7 @@ export default function GamePage() {
         {/* Header */}
         <button
           onClick={() => router.push('/')}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-8 transition-colors"
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-8 transition-colors cursor-pointer"
         >
           <ArrowLeft size={20} />
           <span className="font-medium">Back to Games</span>
@@ -59,17 +68,19 @@ export default function GamePage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <h1 className="text-3xl font-bold text-gray-900">{game.name}</h1>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(game.category)}`}>
-                  {game.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                </span>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
                 {game.description}
               </p>
             </div>
-            <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-              {game.difficulty}
-            </span>
+            <div className="flex gap-2">
+              <span className={`px-3 py-1 rounded-full text-xs font-medium flex items-center justify-center ${getCategoryColor(game.category)}`}>
+                {game.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </span>
+              <span className={`px-3 py-1 rounded-full text-xs font-medium flex items-center justify-center ${getDifficultyColor(game.difficulty)}`}>
+                {game.difficulty}
+              </span>
+            </div>
           </div>
 
           {/* Game Stats */}
