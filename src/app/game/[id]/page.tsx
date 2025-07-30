@@ -108,7 +108,7 @@ export default function GamePage() {
               Get personalized instructions and start learning how to play {game.name}
             </p>
             
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors cursor-pointer">
               Start Tutorial
             </button>
           </div>

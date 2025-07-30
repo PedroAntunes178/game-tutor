@@ -29,7 +29,9 @@ export default function GameCard({ game, onLearnToPlay }: GameCardProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200">
+    <div 
+      className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-6 border border-gray-200 hover:scale-105"
+    >
       <div className="flex justify-between items-start mb-3">
         <h3 className="text-xl font-bold text-gray-900">{game.name}</h3>
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(game.difficulty)}`}>
@@ -73,8 +75,11 @@ export default function GameCard({ game, onLearnToPlay }: GameCardProps) {
       </div>
 
       <button
-        onClick={() => onLearnToPlay(game)}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent card click when button is clicked
+          onLearnToPlay(game);
+        }}
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 cursor-pointer"
       >
         Learn How to Play
       </button>
