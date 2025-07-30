@@ -1,62 +1,164 @@
-# Next.js Framework Starter
+# Game Tutor 🎮
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/next-starter-template)
+A modern web application that teaches users how to play common get-together games, icebreaker games, board games, and card games using AI-powered tutorials.
 
-<!-- dash-content-start -->
+## Features
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's deployed on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+- **Comprehensive Game Database**: Curated collection of popular games with detailed information
+- **AI-Powered Tutorials**: Interactive chat interface powered by Google's Gemini API
+- **Smart Filtering**: Search and filter games by category, difficulty, player count, and more
+- **Mobile-Friendly**: Responsive design that works perfectly on mobile and desktop
+- **Real-time Chat**: Conversational AI that answers questions about game rules and strategies
 
-This template uses [OpenNext](https://opennext.js.org/) via the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare), which works by taking the Next.js build output and transforming it, so that it can run in Cloudflare Workers.
+## Game Categories
 
-<!-- dash-content-end -->
+- **Card Games**: UNO, Poker, and more
+- **Board Games**: Monopoly, Scrabble, and classics
+- **Icebreaker Games**: Two Truths and a Lie, Charades
+- **Get-Together Games**: Scavenger Hunt, party games
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+## Tech Stack
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/next-starter-template
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS
+- **AI Integration**: Google Gemini API
+- **Icons**: Lucide React
+- **Deployment**: Cloudflare Workers
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js 18+ installed
+- A Google AI API key (from [Google AI Studio](https://ai.google.dev/))
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd game-tutor
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+
+4. **Get your Gemini API key**
+   - Visit [Google AI Studio](https://ai.google.dev/)
+   - Create an account or sign in
+   - Generate an API key
+   - Replace `your_gemini_api_key_here` in `.env.local` with your actual key
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Usage
+
+1. **Browse Games**: Use the search bar and filters to find games that match your needs
+2. **Start Tutorial**: Click "Start Tutorial" on any game card
+3. **Chat with AI**: Ask questions about rules, strategies, or variations
+4. **Learn Interactively**: Get step-by-step guidance tailored to your questions
+
+## Example Questions to Ask
+
+- "How do I set up this game?"
+- "What are the basic rules?"
+- "Can you explain the scoring system?"
+- "What strategies should beginners know?"
+- "Are there any variations of this game?"
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/chat/          # Gemini API integration
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx          # Main page
+├── components/
+│   ├── ChatInterface.tsx  # AI chat component
+│   ├── FilterBar.tsx     # Search and filter component
+│   └── GameCard.tsx      # Game display component
+├── data/
+│   └── games.json        # Game database
+├── lib/
+│   └── gemini.ts         # Gemini API utilities
+└── types/
+    └── game.ts           # TypeScript definitions
 ```
 
-A live public deployment of this template is available at [https://next-starter-template.templates.workers.dev](https://next-starter-template.templates.workers.dev)
+## Adding New Games
 
-## Getting Started
+To add new games to the database, edit `src/data/games.json` with the following structure:
 
-First, run:
-
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
+```json
+{
+  "id": "unique-game-id",
+  "name": "Game Name",
+  "category": "card-games|board-games|icebreaker-games|get-together-games",
+  "minPlayers": 2,
+  "maxPlayers": 8,
+  "ageRange": "8+",
+  "duration": "30-60 minutes",
+  "difficulty": "Easy|Medium|Hard",
+  "description": "Brief description of the game",
+  "equipment": ["List", "of", "required", "equipment"],
+  "basicRules": ["Basic", "rules", "summary"],
+  "tags": ["relevant", "tags"]
+}
 ```
 
-Then run the development server (using the package manager of your choice):
+## Deployment
+
+### Cloudflare Workers
+
+This project is optimized for Cloudflare Workers deployment:
 
 ```bash
-npm run dev
+npm run deploy
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Other Platforms
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app can be deployed to any platform that supports Next.js:
+- Vercel
+- Netlify
+- AWS Amplify
+- Docker containers
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing
 
-## Deploying To Production
+1. Fork the repository
+2. Create a feature branch
+3. Add new games or improve existing features
+4. Test your changes
+5. Submit a pull request
 
-| Command                           | Action                                       |
-| :-------------------------------- | :------------------------------------------- |
-| `npm run build`                   | Build your production site                   |
-| `npm run preview`                 | Preview your build locally, before deploying |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare    |
+## License
 
-## Learn More
+This project is open source and available under the MIT License.
 
-To learn more about Next.js, take a look at the following resources:
+## Support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you encounter any issues or have questions:
+1. Check the GitHub issues
+2. Create a new issue with details
+3. Include your environment setup and error messages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
+
+Made with ❤️ for game enthusiasts everywhere!
