@@ -6,6 +6,7 @@ import { Game } from '@/types/game';
 import GameCard from '@/components/GameCard';
 import FilterBar from '@/components/FilterBar';
 import FavoritesBar from '@/components/FavoritesBar';
+import SponsoredBar from '@/components/SponsoredBar';
 import { useFavorites } from '@/hooks/useFavorites';
 import games from '@/data';
 import { GamepadIcon, Sparkles } from 'lucide-react';
@@ -18,6 +19,13 @@ export default function Home() {
   const [playerCount, setPlayerCount] = useState(0);
   
   const { favorites, toggleFavorite, isFavorite, removeFavorite } = useFavorites();
+
+  // Get sponsored games sorted by priority (highest first)
+  const sponsoredGames = useMemo(() => {
+    return (games as Game[])
+      .filter(game => game.sponsorPriority && game.sponsorPriority > 0)
+      .sort((a, b) => (b.sponsorPriority || 0) - (a.sponsorPriority || 0));
+  }, []);
 
   const filteredGames = useMemo(() => {
     return games.filter((game) => {
@@ -74,6 +82,12 @@ export default function Home() {
         <FavoritesBar
           favorites={favorites}
           onRemoveFavorite={removeFavorite}
+          onGameClick={handleLearnToPlay}
+        />
+
+        {/* Sponsored Bar */}
+        <SponsoredBar
+          sponsoredGames={sponsoredGames}
           onGameClick={handleLearnToPlay}
         />
 

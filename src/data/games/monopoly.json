@@ -15,5 +15,7 @@
     "Build houses and hotels to increase rent",
     "Last player remaining wins"
   ],
-  "tags": ["strategy", "family", "indoor", "long-game"]
+  "tags": ["strategy", "family", "indoor", "long-game"],
+  "sponsorPriority": 8,
+  "sponsorWebsite": "https://www.hasbro.com"
 }

@@ -15,5 +15,7 @@
     "Say 'UNO' when you have one card left",
     "First player to empty their hand wins"
   ],
-  "tags": ["family-friendly", "quick-play", "indoor"]
+  "tags": ["family-friendly", "quick-play", "indoor"],
+  "sponsorPriority": 3,
+  "sponsorWebsite": "https://www.mattelgames.com"
 }

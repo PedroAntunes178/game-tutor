@@ -15,5 +15,7 @@
     "Players make the best 5-card hand",
     "Betting rounds determine the winner"
   ],
-  "tags": ["strategy", "betting", "adult", "indoor"]
+  "tags": ["strategy", "betting", "adult", "indoor"],
+  "sponsorPriority": 5,
+  "sponsorWebsite": "https://www.pokerstars.com"
 }

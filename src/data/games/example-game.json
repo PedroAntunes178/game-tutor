@@ -1,5 +1,5 @@
 {
-  "id": "example_game",
+  "id": "example-game",
   "name": "Example Game",
   "category": "icebreaker-games",
   "minPlayers": 1,
@@ -14,6 +14,6 @@
     "Rule 2: Do that"
   ],
   "tags": ["party", "team-building", "indoor"],
-  "sponsored_value": 10,
-  "sponsored_website": "https://www.game-tutor.com"
+  "sponsorPriority": 10,
+  "sponsorWebsite":  "https://game-tutor.com"
 }

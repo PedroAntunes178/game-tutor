@@ -11,8 +11,8 @@ export interface Game {
   equipment: string[];
   basicRules: string[];
   tags: string[];
-  sponsored_value?: number;
-  sponsored_website?: string;
+  sponsorPriority?: number;
+  sponsorWebsite?: string;
 }
 
 export interface ChatMessage {
