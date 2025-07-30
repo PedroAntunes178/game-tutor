@@ -1,15 +1,18 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { ArrowLeft, Users, Clock, Brain, Heart } from 'lucide-react';
 import games from '@/data';
 import { Game } from '@/types/game';
 import { useFavorites } from '@/hooks/useFavorites';
+import ChatInterface from '@/components/ChatInterface';
 
 export default function GamePage() {
   const router = useRouter();
   const { id } = useParams() as { id: string };
   const { isFavorite, toggleFavorite } = useFavorites();
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -126,19 +129,31 @@ export default function GamePage() {
 
         {/* AI Tutorial Assistant */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-          <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Brain className="w-8 h-8 text-blue-600" />
+          {!isChatOpen ? (
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-8 h-8 text-blue-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">AI Tutorial Assistant</h2>
+              <p className="text-gray-600 max-w-md mx-auto mb-6">
+                Get personalized instructions and start learning how to play {game.name}
+              </p>
+              
+              <button 
+                onClick={() => setIsChatOpen(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors cursor-pointer"
+              >
+                Start Tutorial
+              </button>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">AI Tutorial Assistant</h2>
-            <p className="text-gray-600 max-w-md mx-auto mb-6">
-              Get personalized instructions and start learning how to play {game.name}
-            </p>
-            
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors cursor-pointer">
-              Start Tutorial
-            </button>
-          </div>
+          ) : (
+            <ChatInterface 
+              game={game} 
+              isOpen={true} 
+              onClose={() => setIsChatOpen(false)} 
+              isInline={true}
+            />
+          )}
         </div>
       </div>
     </div>
