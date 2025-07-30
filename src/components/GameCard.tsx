@@ -1,14 +1,16 @@
 'use client';
 
 import { Game } from '@/types/game';
-import { Users, Clock } from 'lucide-react';
+import { Users, Clock, Heart } from 'lucide-react';
 
 interface GameCardProps {
   game: Game;
   onLearnToPlay: (game: Game) => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: (game: Game) => void;
 }
 
-export default function GameCard({ game, onLearnToPlay }: GameCardProps) {
+export default function GameCard({ game, onLearnToPlay, isFavorite = false, onToggleFavorite }: GameCardProps) {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'Easy': return 'bg-green-100 text-green-800';
@@ -34,9 +36,30 @@ export default function GameCard({ game, onLearnToPlay }: GameCardProps) {
     >
       <div className="flex justify-between items-start mb-3">
         <h3 className="text-xl font-bold text-gray-900">{game.name}</h3>
-        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(game.difficulty)}`}>
-          {game.difficulty}
-        </span>
+        <div className="flex items-center gap-2">
+          {onToggleFavorite && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFavorite(game);
+              }}
+              className={`p-1 rounded-full transition-colors duration-200 ${
+                isFavorite 
+                  ? 'text-red-500 hover:text-red-600' 
+                  : 'text-gray-400 hover:text-red-500'
+              }`}
+              title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              <Heart 
+                size={20} 
+                className={isFavorite ? 'fill-current' : ''} 
+              />
+            </button>
+          )}
+          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(game.difficulty)}`}>
+            {game.difficulty}
+          </span>
+        </div>
       </div>
       
       <div className="mb-3">

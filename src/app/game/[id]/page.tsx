@@ -1,13 +1,15 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft, Users, Clock, Brain } from 'lucide-react';
+import { ArrowLeft, Users, Clock, Brain, Heart } from 'lucide-react';
 import games from '@/data';
 import { Game } from '@/types/game';
+import { useFavorites } from '@/hooks/useFavorites';
 
 export default function GamePage() {
   const router = useRouter();
   const { id } = useParams() as { id: string };
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -68,6 +70,20 @@ export default function GamePage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <h1 className="text-3xl font-bold text-gray-900">{game.name}</h1>
+                <button
+                  onClick={() => toggleFavorite(game)}
+                  className={`p-2 rounded-full transition-colors duration-200 ${
+                    isFavorite(game) 
+                      ? 'text-red-500 hover:text-red-600 bg-red-50' 
+                      : 'text-gray-400 hover:text-red-500 hover:bg-red-50'
+                  }`}
+                  title={isFavorite(game) ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <Heart 
+                    size={24} 
+                    className={isFavorite(game) ? 'fill-current' : ''} 
+                  />
+                </button>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
                 {game.description}

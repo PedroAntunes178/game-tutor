@@ -1,0 +1,19 @@
+{
+  "id": "example_game",
+  "name": "Example Game",
+  "category": "icebreaker-games",
+  "minPlayers": 1,
+  "maxPlayers": 100,
+  "ageRange": "8+",
+  "duration": "15-45 minutes",
+  "difficulty": "Easy",
+  "description": "An example game for demonstration purposes.",
+  "equipment": ["Paper", "Pen"],
+  "basicRules": [
+    "Rule 1: Do this",
+    "Rule 2: Do that"
+  ],
+  "tags": ["party", "team-building", "indoor"],
+  "sponsored_value": 10,
+  "sponsored_website": "https://www.game-tutor.com"
+}

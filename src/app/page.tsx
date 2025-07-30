@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { Game } from '@/types/game';
 import GameCard from '@/components/GameCard';
 import FilterBar from '@/components/FilterBar';
+import FavoritesBar from '@/components/FavoritesBar';
+import { useFavorites } from '@/hooks/useFavorites';
 import games from '@/data';
 import { GamepadIcon, Sparkles } from 'lucide-react';
 
@@ -14,6 +16,8 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [playerCount, setPlayerCount] = useState(0);
+  
+  const { favorites, toggleFavorite, isFavorite, removeFavorite } = useFavorites();
 
   const filteredGames = useMemo(() => {
     return games.filter((game) => {
@@ -66,6 +70,13 @@ export default function Home() {
           onPlayerCountChange={setPlayerCount}
         />
 
+        {/* Favorites Bar */}
+        <FavoritesBar
+          favorites={favorites}
+          onRemoveFavorite={removeFavorite}
+          onGameClick={handleLearnToPlay}
+        />
+
         {/* Games Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredGames.map((game) => (
@@ -73,6 +84,8 @@ export default function Home() {
               key={game.id}
               game={game as Game}
               onLearnToPlay={handleLearnToPlay}
+              isFavorite={isFavorite(game as Game)}
+              onToggleFavorite={toggleFavorite}
             />
           ))}
         </div>
