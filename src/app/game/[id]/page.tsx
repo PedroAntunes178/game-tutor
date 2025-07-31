@@ -151,7 +151,6 @@ export default function GamePage() {
               game={game} 
               isOpen={true} 
               onClose={() => setIsChatOpen(false)} 
-              isInline={true}
             />
           )}
         </div>
