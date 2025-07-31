@@ -15,8 +15,8 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isInitializedRef = useRef(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -27,7 +27,11 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   }, [messages]);
 
   const initializeChat = useCallback(async () => {
+    if (isInitializedRef.current) return; // Prevent multiple initializations
+
+    isInitializedRef.current = true; // Mark as initialized immediately
     setIsLoading(true);
+    setMessages([]); // Clear any existing messages
 
     const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
       ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
@@ -35,17 +39,10 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
 
     const initialPrompt = `You are a friendly game instructor. I want to learn how to play "${game.name}". 
 
-IMPORTANT: 
-- Do not use any emojis or emoticons in your responses. Use clear, professional text only.
-- Use proper Markdown formatting in your responses:
-  * Use **bold** for emphasis
-  * Use *italics* for game terms
-  * Use \`code blocks\` for specific game components
-  * Use proper link syntax: [link text](URL) for any websites or links
-  * Use bullet points with - or * for lists
-  * Use ## for section headers when appropriate
+IMPORTANT: Do not use any emojis or emoticons in your responses. Use clear, professional text only. Use proper Markdown formatting in your responses: Use **bold** for emphasis; Use *italics* for game terms; Use \`code blocks\` for specific game components; Use proper link syntax: [link text](URL) for any websites or links; Use bullet points with - or * for lists; Use ## for section headers when appropriate.
+${sponsoredInfo}
 
-Here's the game data: ${JSON.stringify(game, null, 2)}${sponsoredInfo}
+Here's the game data: ${JSON.stringify(game, null, 2)}
 
 Please start by giving me a warm welcome and a brief overview of the game. Then ask if I'd like to learn the basic rules, setup instructions, or if I have any specific questions about the game.`
 
@@ -59,6 +56,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
     setMessages([initialMessage]);
 
     try {
+      console.log('Got here!');
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -83,9 +81,9 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       };
 
       setMessages(prev => [...prev, assistantMessage]);
-      setIsInitialized(true);
     } catch (error) {
       console.error('Error initializing chat:', error);
+      isInitializedRef.current = false; // Reset on error so it can be retried
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
@@ -96,14 +94,14 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
     } finally {
       setIsLoading(false);
     }
-  }, [game]);
+  }, []); // No dependencies needed
 
-  // Initialize chat when opened
+  // Initialize chat only when isOpen changes to true
   useEffect(() => {
-    if (!isInitialized) {
+    if (isOpen) {
       initializeChat();
     }
-  }, [isInitialized, initializeChat]);
+  }, [isOpen]);
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -161,7 +159,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
 
   const handleClose = () => {
     setMessages([]);
-    setIsInitialized(false);
+    isInitializedRef.current = false; // Reset initialization status when closing
     onClose();
   };
 
@@ -222,7 +220,6 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
             </div>
             <div className="bg-gray-100 text-gray-900 p-3 rounded-lg flex items-center gap-2">
               <Loader2 size={16} className="animate-spin" />
-              <span>...</span>
             </div>
           </div>
         )}
