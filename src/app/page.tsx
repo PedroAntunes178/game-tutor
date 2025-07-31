@@ -66,18 +66,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Filters */}
-        <FilterBar
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-          selectedDifficulty={selectedDifficulty}
-          onDifficultyChange={setSelectedDifficulty}
-          playerCount={playerCount}
-          onPlayerCountChange={setPlayerCount}
-        />
-
         {/* Favorites Bar */}
         <FavoritesBar
           favorites={favorites}
@@ -89,6 +77,18 @@ export default function Home() {
         <SponsoredBar
           sponsoredGames={sponsoredGames}
           onGameClick={handleLearnToPlay}
+        />
+
+        {/* Filters */}
+        <FilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          selectedDifficulty={selectedDifficulty}
+          onDifficultyChange={setSelectedDifficulty}
+          playerCount={playerCount}
+          onPlayerCountChange={setPlayerCount}
         />
 
         {/* Games Grid */}
