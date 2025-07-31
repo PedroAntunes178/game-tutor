@@ -26,12 +26,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    let conversationContent = "";
-    conversationContent = messages[messages.length - 1].content;
+    // Convert messages to the format expected by the Gemini API
+    const contents = messages.map(message => ({
+      role: message.role,
+      parts: [{ text: message.content }]
+    }));
 
     const response = await ai.models.generateContent({
       model: "gemma-3n-e4b-it",
-      contents: conversationContent
+      contents: contents
     });
 
     const text = response.text;

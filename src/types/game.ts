@@ -17,7 +17,7 @@ export interface Game {
 
 export interface ChatMessage {
   id: string;
-  role: 'user' | 'assistant';
+  role: 'user' | 'model';
   content: string;
   timestamp: Date;
 }

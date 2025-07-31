@@ -75,7 +75,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        role: 'assistant',
+        role: 'model',
         content: data.content,
         timestamp: new Date()
       };
@@ -86,7 +86,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       isInitializedRef.current = false; // Reset on error so it can be retried
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        role: 'assistant',
+        role: 'model',
         content: 'Sorry, I encountered an error. Please try again.',
         timestamp: new Date()
       };
@@ -137,7 +137,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        role: 'assistant',
+        role: 'model',
         content: data.content,
         timestamp: new Date()
       };
@@ -147,7 +147,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        role: 'assistant',
+        role: 'model',
         content: 'Sorry, I encountered an error. Please try again.',
         timestamp: new Date()
       };
@@ -193,7 +193,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
             key={message.id}
             className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            {message.role === 'assistant' && (
+            {message.role === 'model' && (
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <Bot size={16} className="text-blue-600" />
               </div>
