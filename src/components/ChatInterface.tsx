@@ -18,6 +18,19 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isInitializedRef = useRef(false);
 
+  const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
+    ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
+    : ''
+
+  const initialPrompt = `You are a friendly game instructor. I want to learn how to play "${game.name}". 
+
+IMPORTANT: Do not use any emojis or emoticons in your responses. Use clear, professional text only. Use proper Markdown formatting in your responses: Use **bold** for emphasis; Use *italics* for game terms; Use \`code blocks\` for specific game components; Use proper link syntax: [link text](URL) for any websites or links; Use bullet points with - or * for lists; Use ## for section headers when appropriate.
+${sponsoredInfo}
+
+Here's the game data: ${JSON.stringify(game, null, 2)}
+
+Please start by giving me a warm welcome and a brief overview of the game. Then ask if I'd like to learn the basic rules, setup instructions, or if I have any specific questions about the game.`
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -31,39 +44,16 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
 
     isInitializedRef.current = true; // Mark as initialized immediately
     setIsLoading(true);
-    setMessages([]); // Clear any existing messages
-
-    const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
-      ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
-      : ''
-
-    const initialPrompt = `You are a friendly game instructor. I want to learn how to play "${game.name}". 
-
-IMPORTANT: Do not use any emojis or emoticons in your responses. Use clear, professional text only. Use proper Markdown formatting in your responses: Use **bold** for emphasis; Use *italics* for game terms; Use \`code blocks\` for specific game components; Use proper link syntax: [link text](URL) for any websites or links; Use bullet points with - or * for lists; Use ## for section headers when appropriate.
-${sponsoredInfo}
-
-Here's the game data: ${JSON.stringify(game, null, 2)}
-
-Please start by giving me a warm welcome and a brief overview of the game. Then ask if I'd like to learn the basic rules, setup instructions, or if I have any specific questions about the game.`
-
-    const initialMessage: ChatMessage = {
-      id: Date.now().toString(),
-      role: 'user',
-      content: `${initialPrompt}`,
-      timestamp: new Date()
-    };
-
-    setMessages([initialMessage]);
 
     try {
-      console.log('Got here!');
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: [initialMessage]
+          initialPrompt: initialPrompt,
+          messages: []
         }),
       });
 
@@ -74,23 +64,23 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       const data = await response.json() as { content: string };
 
       const assistantMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: Date.now().toString(),
         role: 'model',
         content: data.content,
         timestamp: new Date()
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages([assistantMessage]);
     } catch (error) {
       console.error('Error initializing chat:', error);
       isInitializedRef.current = false; // Reset on error so it can be retried
       const errorMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: Date.now().toString(),
         role: 'model',
         content: 'Sorry, I encountered an error. Please try again.',
         timestamp: new Date()
       };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages([errorMessage]);
     } finally {
       setIsLoading(false);
     }
@@ -125,6 +115,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          initialPrompt: initialPrompt,
           messages: newMessages
         }),
       });
@@ -199,7 +190,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
               </div>
             )}
             <div
-              className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
+              className={`max-w-[90%] p-3 rounded-lg ${message.role === 'user'
                 ? 'bg-blue-600 text-white ml-auto'
                 : 'bg-gray-100 text-gray-900'
                 }`}

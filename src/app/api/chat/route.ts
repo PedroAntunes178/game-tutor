@@ -6,31 +6,44 @@ const ai = new GoogleGenAI({
 });
 
 interface ChatMessage {
-  role: 'user' | 'assistant';
+  role: 'user' | 'model';
   content: string;
 }
 
 interface RequestBody {
+  initialPrompt: string;
   messages: ChatMessage[];
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json() as RequestBody;
-    const { messages } = body;
+    const { initialPrompt, messages } = body;
 
-    if (!messages || messages.length === 0) {
+    // Validate that we have either an initial prompt or messages
+    if (!initialPrompt
+    ) {
       return NextResponse.json(
-        { error: 'No messages provided' },
+        { error: 'The initialPrompt must be provided' },
         { status: 400 }
       );
     }
 
-    // Convert messages to the format expected by the Gemini API
-    const contents = messages.map(message => ({
-      role: message.role,
-      parts: [{ text: message.content }]
-    }));
+    // Always include the initial prompt as the first message to maintain context
+    // followed by any conversation messages
+    let contents = [{
+      role: 'user',
+      parts: [{ text: initialPrompt }]
+    }];
+
+    // Add the conversation messages after the initial prompt
+    if (messages.length > 0) {
+      const conversationContents = messages.map(message => ({
+        role: message.role,
+        parts: [{ text: message.content }]
+      }));
+      contents = contents.concat(conversationContents);
+    }
 
     const response = await ai.models.generateContent({
       model: "gemma-3n-e4b-it",
