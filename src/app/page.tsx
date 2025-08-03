@@ -48,6 +48,14 @@ export default function Home() {
     router.push(`/game/${gameSlug}`);
   };
 
+  const handleAIRecommendation = (gameId: string) => {
+    // Find the game by ID and navigate to it
+    const game = games.find(g => g.id === gameId);
+    if (game) {
+      handleLearnToPlay(game as Game);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-8">
@@ -66,13 +74,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Favorites Bar */}
-        <FavoritesBar
-          favorites={favorites}
-          onRemoveFavorite={removeFavorite}
-          onGameClick={handleLearnToPlay}
-        />
-
         {/* Sponsored Bar */}
         <SponsoredBar
           sponsoredGames={sponsoredGames}
@@ -89,6 +90,14 @@ export default function Home() {
           onDifficultyChange={setSelectedDifficulty}
           playerCount={playerCount}
           onPlayerCountChange={setPlayerCount}
+          onAIRecommendation={handleAIRecommendation}
+        />
+
+        {/* Favorites Bar */}
+        <FavoritesBar
+          favorites={favorites}
+          onRemoveFavorite={removeFavorite}
+          onGameClick={handleLearnToPlay}
         />
 
         {/* Games Grid */}

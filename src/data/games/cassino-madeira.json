@@ -1,0 +1,41 @@
+{
+  "id": "cassino-madeira",
+  "name": "Cassino (Madeira)",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 4,
+  "ageRange": "10+",
+  "duration": "30-60 minutes",
+  "difficulty": "Medium",
+  "description": "A traditional Madeiran card game where players capture cards from the table using matching values or combinations. Strategy and memory are key to securing high-value cards and outscoring your opponent.",
+  "equipment": ["Standard 52-card deck (no jokers)"],
+  "basicRules": [
+    "Deal 4 cards to each player and 4 cards face-up to the table.",
+    "Players take turns playing one card per round.",
+    "Capture cards from the table by matching their value or summing cards to equal the played card's value.",
+    "Players may 'build' combinations on the table that can be captured in future turns.",
+    "If no capture or build is possible, the player must 'trail' a card onto the table.",
+    "Repeat dealing until the deck is exhausted; the last player to make a capture takes remaining table cards.",
+    "Score at the end of each round based on captured cards."
+  ],
+  "scoring": {
+    "mostCards": 3,
+    "mostSpades": 1,
+    "10 of Diamonds": 2,
+    "2 of Spades": 1,
+    "each Ace": 1
+  },
+  "winningCondition": "Game is played until one player or team reaches a target score (commonly 21 or 31 points).",
+  "variants": [
+    "Team Play: In 4-player games, partners sit opposite each other.",
+    "No Builds: Beginners may skip build rules for simpler gameplay.",
+    "Target Score Variant: Increase to 51 or 61 for longer games."
+  ],
+  "strategyTips": [
+    "Track which high-point cards have been played or captured.",
+    "Use builds wisely; don't leave them open for opponents to steal.",
+    "Controlling the last capture can secure leftover cards and extra points.",
+    "Focus on capturing the 10 of Diamonds and 2 of Spades when possible."
+  ],
+  "tags": ["traditional", "Portuguese", "strategy", "memory", "fishing", "Madeira", "card game", "family"]
+}
