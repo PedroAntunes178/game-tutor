@@ -1,6 +1,6 @@
 'use client';
 
-import { Search, Sparkles } from 'lucide-react';
+import { Search, Sparkles, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import games from '@/data';
 
@@ -28,6 +28,8 @@ export default function FilterBar({
   onAIRecommendation,
 }: FilterBarProps) {
   const [isAsking, setIsAsking] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+  
   const categories = [
     { value: '', label: 'All Categories' },
     { value: 'card-games', label: 'Card Games' },
@@ -113,8 +115,8 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-6">
-      <div className="flex flex-col lg:flex-row gap-4">
-        {/* Search */}
+      {/* Desktop: Single row with search + filters */}
+      <div className="hidden lg:flex gap-4 items-center">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input
@@ -122,29 +124,111 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
             placeholder="Search games or describe what you're looking for..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
           />
         </div>
 
         {/* Ask AI Button */}
-        <div className="flex-shrink-0">
+        <button
+          onClick={handleAskAI}
+          disabled={isAsking || !searchQuery.trim()}
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+        >
+          <Sparkles size={16} className={isAsking ? 'animate-pulse' : ''} />
+          <span>{isAsking ? 'Asking AI...' : 'Ask AI'}</span>
+        </button>
+
+        {/* Desktop Filters */}
+        <div className="min-w-0 w-48">
+          <select
+            value={selectedCategory}
+            onChange={(e) => onCategoryChange(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer text-gray-900"
+          >
+            {categories.map((category) => (
+              <option key={category.value} value={category.value}>
+                {category.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="min-w-0 w-40">
+          <select
+            value={selectedDifficulty}
+            onChange={(e) => onDifficultyChange(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer text-gray-900"
+          >
+            {difficulties.map((difficulty) => (
+              <option key={difficulty.value} value={difficulty.value}>
+                {difficulty.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="min-w-0 w-36">
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium text-gray-900 whitespace-nowrap">
+              Players:
+            </label>
+            <input
+              type="number"
+              min="1"
+              max="50"
+              value={playerCount || ''}
+              onChange={(e) => onPlayerCountChange(parseInt(e.target.value) || 0)}
+              placeholder="Any"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile: Separate layout */}
+      <div className="lg:hidden">
+        {/* Mobile Search Row */}
+        <div className="flex gap-2 mb-3">
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search games or describe what you're looking for..."
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          {/* Mobile Ask AI Button */}
           <button
             onClick={handleAskAI}
             disabled={isAsking || !searchQuery.trim()}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
-            <Sparkles size={18} className={isAsking ? 'animate-pulse' : ''} />
-            {isAsking ? 'Asking AI...' : 'Ask AI'}
+            <Sparkles size={16} className={isAsking ? 'animate-pulse' : ''} />
           </button>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-col sm:flex-row gap-4 lg:gap-3">
-          <div className="min-w-0 sm:w-48">
+        {/* Filter Toggle Button */}
+        <div className="mb-3">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+          >
+            <Filter size={16} />
+            <span className="text-sm">Filters</span>
+            {showFilters ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+        </div>
+
+        {/* Mobile Filters */}
+        <div className={`${showFilters ? 'block' : 'hidden'}`}>
+          <div className="flex flex-col gap-3">
             <select
               value={selectedCategory}
               onChange={(e) => onCategoryChange(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer text-gray-900"
             >
               {categories.map((category) => (
                 <option key={category.value} value={category.value}>
@@ -152,13 +236,11 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
                 </option>
               ))}
             </select>
-          </div>
 
-          <div className="min-w-0 sm:w-40">
             <select
               value={selectedDifficulty}
               onChange={(e) => onDifficultyChange(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer text-gray-900"
             >
               {difficulties.map((difficulty) => (
                 <option key={difficulty.value} value={difficulty.value}>
@@ -166,11 +248,9 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
                 </option>
               ))}
             </select>
-          </div>
 
-          <div className="min-w-0 sm:w-36">
             <div className="flex items-center gap-2">
-              <label className="text-sm font-medium text-gray-700 whitespace-nowrap">
+              <label className="text-sm font-medium text-gray-900 whitespace-nowrap">
                 Players:
               </label>
               <input
@@ -180,7 +260,7 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
                 value={playerCount || ''}
                 onChange={(e) => onPlayerCountChange(parseInt(e.target.value) || 0)}
                 placeholder="Any"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               />
             </div>
           </div>
