@@ -84,14 +84,14 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
     } finally {
       setIsLoading(false);
     }
-  }, []); // No dependencies needed
+  }, [initialPrompt]); // Include initialPrompt dependency
 
   // Initialize chat only when isOpen changes to true
   useEffect(() => {
     if (isOpen) {
       initializeChat();
     }
-  }, [isOpen]);
+  }, [isOpen, initializeChat]);
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
