@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Bot, User, Loader2, X } from 'lucide-react';
+import { Send, Bot, User, Loader2, X, Volume2, VolumeX } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Game, ChatMessage } from '@/types/game';
+import { useTTS } from '@/hooks/useTTS';
 
 interface ChatInterfaceProps {
   game: Game;
@@ -17,6 +18,9 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isInitializedRef = useRef(false);
+  
+  // Use the TTS hook
+  const { isSpeaking, currentSpeakingId, speak, stop, isSupported } = useTTS();
 
   const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
     ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
@@ -151,6 +155,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
   const handleClose = () => {
     setMessages([]);
     isInitializedRef.current = false; // Reset initialization status when closing
+    stop(); // Stop any ongoing speech
     onClose();
   };
 
@@ -189,13 +194,37 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
                 <Bot size={16} className="text-blue-600" />
               </div>
             )}
-            <div
-              className={`max-w-[90%] p-3 rounded-lg ${message.role === 'user'
-                ? 'bg-blue-600 text-white ml-auto'
-                : 'bg-gray-100 text-gray-900'
-                }`}
-            >
-              <ReactMarkdown>{message.content}</ReactMarkdown>
+            <div className="flex flex-col max-w-[90%]">
+              <div
+                className={`p-3 rounded-lg ${message.role === 'user'
+                  ? 'bg-blue-600 text-white ml-auto'
+                  : 'bg-gray-100 text-gray-900'
+                  }`}
+              >
+                <ReactMarkdown>{message.content}</ReactMarkdown>
+              </div>
+              {message.role === 'model' && isSupported && (
+                <div className="flex justify-start mt-1">
+                  <button
+                    onClick={() => {
+                      if (currentSpeakingId === message.id && isSpeaking) {
+                        stop();
+                      } else {
+                        speak(message.content, message.id);
+                      }
+                    }}
+                    className="flex items-center gap-1 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors"
+                    title={currentSpeakingId === message.id && isSpeaking ? "Stop speaking" : "Read aloud"}
+                  >
+                    {currentSpeakingId === message.id && isSpeaking ? (
+                      <VolumeX size={14} />
+                    ) : (
+                      <Volume2 size={14} />
+                    )}
+                    <span>{currentSpeakingId === message.id && isSpeaking ? "Stop" : "Listen"}</span>
+                  </button>
+                </div>
+              )}
             </div>
             {message.role === 'user' && (
               <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
