@@ -32,7 +32,8 @@ export default function GameCard({ game, onLearnToPlay, isFavorite = false, onTo
 
   return (
     <div 
-      className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-6 border border-gray-200 hover:scale-105"
+      onClick={() => onLearnToPlay(game)}
+      className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-6 border border-gray-200 hover:scale-105 cursor-pointer"
     >
       <div className="flex justify-between items-start mb-3">
         <h3 className="text-xl font-bold text-gray-900">{game.name}</h3>
@@ -96,16 +97,6 @@ export default function GameCard({ game, onLearnToPlay, isFavorite = false, onTo
           )}
         </div>
       </div>
-
-      <button
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent card click when button is clicked
-          onLearnToPlay(game);
-        }}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 cursor-pointer"
-      >
-        Learn How to Play
-      </button>
     </div>
   );
 }
