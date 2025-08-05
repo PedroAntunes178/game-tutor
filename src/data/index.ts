@@ -41,6 +41,7 @@ import minuteToWinIt from './games/minute-to-win-it.json';
 import beerPong from './games/beer-pong.json';
 import telephone from './games/telephone.json';
 import sueca from './games/sueca.json';
+import gringo from './games/gringo.json';
 
 const games = [
   uno,
@@ -85,7 +86,8 @@ const games = [
   minuteToWinIt,
   beerPong,
   telephone,
-  sueca
+  sueca,
+  gringo
 ];
 
 export default games;

@@ -1,0 +1,48 @@
+{
+  "id": "gringo",
+  "name": "Gringo",
+  "category": "card-games",
+  "minPlayers": 3,
+  "maxPlayers": 6,
+  "ageRange": "10+",
+  "duration": "20-30 minutes",
+  "difficulty": "Medium",
+  "description": "Gringo is a memory-based card game where players try to end each round with the lowest total score by swapping, peeking, and bluffing. Players declare 'Gringo' when they think they have the lowest score, triggering the end of the round.",
+  "equipment": ["Standard 52-card deck (no Jokers)", "Score sheet (optional)"],
+  "basicRules": [
+    "Each player is dealt 4 cards face-down and may look at any 2 of their own cards once at the start.",
+    "Cards are kept face-down in front of players throughout the round.",
+    "On your turn, draw the top card from the draw pile or take the top card from the discard pile.",
+    "You may discard the drawn card or swap it with one of your own face-down cards (the swapped card goes face-up into the discard pile).",
+    "Some cards have special actions when drawn and played (see 'cardEffects').",
+    "If you think you have the lowest score at the start of your turn, you may declare 'Gringo' to trigger the final round."
+  ],
+  "cardEffects": {
+    "10": "Look at one of your own face-down cards.",
+    "Jack": "Look at one face-down card of another player.",
+    "Queen": "Blindly swap one of your cards with another player's card.",
+    "Black King": "Look at one card of another player and choose to swap it or not.",
+    "Red King": "-2 points at the end of the round (no immediate effect)."
+  },
+  "cardScoring": {
+    "Ace": 1,
+    "2-10": "Face value",
+    "Jack": 10,
+    "Queen": 10,
+    "Black King": 10,
+    "Red King": -2
+  },
+  "winningCondition": "After 'Gringo' is declared, each player (except the caller) takes one final turn. Then all cards are revealed, and the player with the lowest total score wins the round.",
+  "variants": [
+    "Long Game: Play multiple rounds, tracking cumulative scores. Player with the lowest total after a set number of rounds wins.",
+    "Silent Gringo: Players declare Gringo by placing a token silently to increase bluffing potential.",
+    "Double Deck: For 7+ players, use two decks and increase each player's hand to 6 cards."
+  ],
+  "strategyTips": [
+    "Memorize your cards early and use 10s and Jacks wisely to gather more information.",
+    "Avoid drawing high-value cards unless you have a chance to discard them.",
+    "Use Queens or Black Kings to manipulate opponents' hands late in the round.",
+    "Declare Gringo only when you're reasonably sure your score is the lowest."
+  ],
+  "tags": ["casual", "memory", "strategy", "bluffing", "social", "family"]
+}
