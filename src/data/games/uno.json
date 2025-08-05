@@ -5,17 +5,32 @@
   "minPlayers": 2,
   "maxPlayers": 10,
   "ageRange": "7+",
-  "duration": "30 minutes",
+  "duration": "15-30 minutes",
   "difficulty": "Easy",
-  "description": "A classic card matching game where players race to empty their hands.",
+  "description": "UNO is a fast-paced card matching game where players take turns discarding cards by matching color or number. Special action cards add twists to the game as players race to be the first to play all their cards.",
   "equipment": ["UNO deck (108 cards)"],
   "basicRules": [
-    "Each player starts with 7 cards",
-    "Match cards by color, number, or symbol",
-    "Say 'UNO' when you have one card left",
-    "First player to empty their hand wins"
+    "Each player is dealt 7 cards. The rest of the deck forms a draw pile; one card is turned face up to start the discard pile.",
+    "On your turn, play one card from your hand that matches the top card of the discard pile by either color (red, green, blue, yellow), number (0-9), or type (Skip, Reverse, Draw Two). If you can't play a matching card, draw one from the deck. If that card is playable, you may play it immediately; otherwise, keep it and your turn ends.",
+    "If a player cannot play a card, they must draw one from the draw pile. If playable, it can be played immediately.",
+    "Use action cards (Skip, Reverse, Draw Two, Wild, Wild Draw Four) strategically to disrupt opponents.",
+    "Players must say 'UNO' when they have one card left. Failing to do so before another player calls it results in a penalty draw.",
+    "The first player to empty their hand wins the round. Points are scored based on cards left in opponents' hands."
   ],
-  "tags": ["family-friendly", "quick-play", "indoor"],
+  "actionCards": {
+    "Skip": "Next player loses their turn.",
+    "Reverse": "Reverses the direction of play.",
+    "Draw Two": "Next player draws 2 cards and loses their turn.",
+    "Wild": "Player chooses the color to continue.",
+    "Wild Draw Four": "Player chooses the color and next player draws 4 cards and skips a turn. Can only be played if no matching color is available."
+  },
+  "scoring": {
+    "numberCards": "Face value",
+    "Skip/Reverse/Draw Two": 20,
+    "Wild/Wild Draw Four": 50
+  },
+  "winningCondition": "The first player to play all their cards wins the round.",
+  "tags": ["family-friendly", "quick-play", "classic", "indoor", "party", "strategy", "turn-based"],
   "sponsorPriority": 3,
   "sponsorWebsite": "https://www.mattelgames.com"
 }

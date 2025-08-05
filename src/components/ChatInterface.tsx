@@ -32,7 +32,7 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   } = useAudioRecording();
 
   const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
-    ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
+    ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Link](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
     : ''
 
   const initialPrompt = `You are a friendly game instructor. I want to learn how to play "${game.name}". 
