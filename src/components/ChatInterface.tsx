@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Bot, User, Loader2, X, Volume2, VolumeX } from 'lucide-react';
+import { Send, Bot, User, Loader2, X, Volume2, VolumeX, Mic, Square } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Game, ChatMessage } from '@/types/game';
 import { useTTS } from '@/hooks/useTTS';
+import { useAudioRecording } from '@/hooks/useAudioRecording';
 
 interface ChatInterfaceProps {
   game: Game;
@@ -16,11 +17,19 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isInitializedRef = useRef(false);
   
   // Use the TTS hook
   const { isSpeaking, currentSpeakingId, speak, stop, isSupported } = useTTS();
+  
+  // Use the audio recording hook
+  const { 
+    isRecording, 
+    isTranscribing, 
+    recordAndTranscribe
+  } = useAudioRecording();
 
   const sponsoredInfo = game.sponsorPriority && game.sponsorWebsite
     ? `\n\nIMPORTANT: This is a sponsored game. Please mention that players can visit ${game.sponsorWebsite} for more information. When mentioning the website, format it as a proper Markdown link like this: [Board Game Arena](${game.sponsorWebsite}). Include this information naturally in your welcome message.`
@@ -97,19 +106,31 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
     }
   }, [isOpen, initializeChat]);
 
-  const sendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const sendMessage = async (e?: React.FormEvent, input_text?: string) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    // Use provided input_text or fall back to the input field value
+    const messageContent = input_text ? input_text.trim() : input.trim();
+    
+    if (!messageContent) return;
 
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       role: 'user',
-      content: input.trim(),
+      content: messageContent,
       timestamp: new Date()
     };
 
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
-    setInput('');
+    
+    // Only clear input field if we're using the form input (not audio transcription)
+    if (!input_text) {
+      setInput('');
+    }
+    
     setIsLoading(true);
 
     try {
@@ -149,6 +170,23 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleAudioRecording = async () => {
+    setErrorMessage(''); // Clear any previous errors
+    try {
+      const transcription = await recordAndTranscribe();
+      if (transcription) {
+        await sendMessage(undefined, transcription);
+      }
+    } catch (error) {
+      console.error('Error with audio recording:', error);
+      const errorMsg = error instanceof Error ? error.message : 'Failed to record or transcribe audio. Please try again.';
+      setErrorMessage(errorMsg);
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => setErrorMessage(''), 5000);
     }
   };
 
@@ -248,18 +286,55 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
 
       {/* Input */}
       <div className="border-t border-gray-200 p-4">
+        {errorMessage && (
+          <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+            <div className="flex items-center gap-2">
+              <X size={16} className="text-red-600" />
+              <span className="text-sm text-red-700">{errorMessage}</span>
+            </div>
+          </div>
+        )}
         <form onSubmit={sendMessage} className="flex gap-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask me anything about the game..."
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            disabled={isLoading}
+            placeholder={
+              isRecording 
+                ? "Recording..." 
+                : isTranscribing 
+                ? "Transcribing audio..." 
+                : "Ask me anything about the game..."
+            }
+            className={`flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+              isRecording 
+                ? 'border-red-300 bg-red-50' 
+                : isTranscribing 
+                ? 'border-yellow-300 bg-yellow-50' 
+                : 'border-gray-300'
+            }`}
+            disabled={isLoading || isRecording || isTranscribing}
           />
           <button
+            type="button"
+            onClick={handleAudioRecording}
+            disabled={isLoading || isTranscribing}
+            className={`p-2 rounded-lg transition-all duration-200 ${
+              isRecording 
+                ? 'bg-red-600 text-white hover:bg-red-700 animate-pulse shadow-lg shadow-red-200' 
+                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            title={isRecording ? "Stop recording" : "Start voice recording"}
+          >
+            {isRecording ? (
+              <Square size={20} className="animate-pulse" />
+            ) : (
+              <Mic size={20} />
+            )}
+          </button>
+          <button
             type="submit"
-            disabled={!input.trim() || isLoading}
+            disabled={!input.trim() || isLoading || isRecording || isTranscribing}
             className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send size={20} />
