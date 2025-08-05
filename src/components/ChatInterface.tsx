@@ -52,11 +52,12 @@ export default function ChatInterface({ game, isOpen, onClose }: ChatInterfacePr
     const initialPrompt = `You are a friendly game instructor. I want to learn how to play "${game.name}". 
 
 IMPORTANT: Do not use any emojis or emoticons in your responses. Use clear, professional text only. Use proper Markdown formatting in your responses: Use **bold** for emphasis; Use *italics* for game terms; Use \`code blocks\` for specific game components; Use proper link syntax: [link text](URL) for any websites or links; Use bullet points with - or * for lists; Use ## for section headers when appropriate.
+IMPORTANT: Keep your responses concise and focused on the game. Avoid unnecessary details.
 ${sponsoredInfo}
 
 Here's the game data: ${JSON.stringify(game, null, 2)}
 
-Please start by giving me a warm welcome and a brief overview of the game. Then ask if I'd like to learn the basic rules, setup instructions, or if I have any specific questions about the game.`
+Please start by giving me a simple overview of the game. Then ask if I'd like to learn the basic rules, setup instructions, or if I have any specific questions about the game.`
 
     const initialMessage: ChatMessage = {
       id: Date.now().toString(),
