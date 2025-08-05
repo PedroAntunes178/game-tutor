@@ -16,6 +16,26 @@ export function useAudioRecording(): UseAudioRecordingReturn {
 
   const startRecording = useCallback(async () => {
     try {
+      // Check if we're in a browser environment
+      if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+        throw new Error('Audio recording is not available in this environment.');
+      }
+
+      // Check for getUserMedia support
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error('Your browser does not support audio recording. Please use a modern browser like Chrome, Firefox, or Safari.');
+      }
+
+      // Check for secure context (HTTPS or localhost)
+      if (!window.isSecureContext) {
+        throw new Error('Audio recording requires a secure connection (HTTPS). Please access the site via HTTPS or localhost.');
+      }
+
+      // Check for MediaRecorder support
+      if (!window.MediaRecorder) {
+        throw new Error('Your browser does not support audio recording. Please update your browser or try a different one.');
+      }
+
       const stream = await navigator.mediaDevices.getUserMedia({ 
         audio: {
           echoCancellation: true,
@@ -24,9 +44,19 @@ export function useAudioRecording(): UseAudioRecordingReturn {
         }
       });
       
-      const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm;codecs=opus'
-      });
+      // Check for supported MIME types
+      let mimeType = 'audio/webm;codecs=opus';
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        if (MediaRecorder.isTypeSupported('audio/webm')) {
+          mimeType = 'audio/webm';
+        } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+          mimeType = 'audio/mp4';
+        } else {
+          mimeType = 'audio/wav';
+        }
+      }
+
+      const mediaRecorder = new MediaRecorder(stream, { mimeType });
       
       audioChunksRef.current = [];
       
@@ -41,7 +71,32 @@ export function useAudioRecording(): UseAudioRecordingReturn {
       setIsRecording(true);
     } catch (error) {
       console.error('Error starting recording:', error);
-      throw new Error('Failed to start recording. Please check your microphone permissions.');
+      
+      // Provide specific error messages based on error type
+      if (error instanceof Error) {
+        // Handle specific DOMException errors
+        if (error.name === 'NotAllowedError') {
+          throw new Error('Microphone access denied. Please allow microphone permissions and try again.');
+        } else if (error.name === 'NotFoundError') {
+          throw new Error('No microphone found. Please connect a microphone and try again.');
+        } else if (error.name === 'NotSupportedError') {
+          throw new Error('Your browser does not support audio recording. Please try a different browser.');
+        } else if (error.name === 'NotReadableError') {
+          throw new Error('Microphone is already in use by another application. Please close other apps using the microphone and try again.');
+        } else if (error.name === 'SecurityError') {
+          throw new Error('Audio recording blocked due to security restrictions. Please ensure you\'re using HTTPS or localhost.');
+        } else if (error.name === 'AbortError') {
+          throw new Error('Recording was interrupted. Please try again.');
+        } else if (error.message.includes('secure') || error.message.includes('HTTPS')) {
+          throw error; // Re-throw our custom secure context error
+        } else if (error.message.includes('browser') || error.message.includes('support')) {
+          throw error; // Re-throw our custom browser support errors
+        } else {
+          throw new Error(`Failed to start recording: ${error.message}`);
+        }
+      }
+      
+      throw new Error('Failed to start recording. Please check your microphone permissions and try again.');
     }
   }, []);
 
