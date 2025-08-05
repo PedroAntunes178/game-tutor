@@ -7,23 +7,28 @@ A modern web application that teaches users how to play common get-together game
 - **Comprehensive Game Database**: Curated collection of popular games with detailed information
 - **AI-Powered Tutorials**: Interactive chat interface powered by Google's Gemini API
 - **Smart Filtering**: Search and filter games by category, difficulty, player count, and more
+- **Favorites System**: Save and manage your favorite games for quick access
+- **Voice Features**: Audio recording and text-to-speech capabilities for enhanced accessibility
+- **Sponsored Content**: Featured games and sponsored recommendations
 - **Mobile-Friendly**: Responsive design that works perfectly on mobile and desktop
 - **Real-time Chat**: Conversational AI that answers questions about game rules and strategies
 
 ## Game Categories
 
 - **Card Games**: UNO, Poker, and more
-- **Board Games**: Monopoly, Scrabble, and classics
+- **Board Games**: Monopoly, and classics
 - **Icebreaker Games**: Two Truths and a Lie, Charades
-- **Get-Together Games**: Scavenger Hunt, party games
+- **Get-Together Games**: Scavenger Hunt, party games, Cassino Madeira
 
 ## Tech Stack
 
 - **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS with PostCSS
 - **AI Integration**: Google Gemini API
 - **Icons**: Lucide React
-- **Deployment**: Cloudflare Workers
+- **Markdown**: React Markdown for formatted content
+- **Deployment**: Cloudflare Workers with OpenNext
+- **TypeScript**: Full type safety throughout the application
 
 ## Setup Instructions
 
@@ -68,9 +73,19 @@ A modern web application that teaches users how to play common get-together game
 ## Usage
 
 1. **Browse Games**: Use the search bar and filters to find games that match your needs
-2. **Start Tutorial**: Click "Start Tutorial" on any game card
-3. **Chat with AI**: Ask questions about rules, strategies, or variations
-4. **Learn Interactively**: Get step-by-step guidance tailored to your questions
+2. **Add to Favorites**: Click the heart icon to save games you want to play later
+3. **Start Tutorial**: Click "Start Tutorial" on any game card to begin learning
+4. **Chat with AI**: Ask questions about rules, strategies, or variations
+5. **Voice Interaction**: Use voice recording to ask questions hands-free
+6. **Listen to Responses**: Enable text-to-speech to hear AI responses aloud
+7. **Learn Interactively**: Get step-by-step guidance tailored to your questions
+
+## Audio Features
+
+- **Voice Recording**: Record your questions using the microphone for hands-free interaction
+- **Speech Transcription**: Audio recordings are automatically transcribed to text
+- **Text-to-Speech**: Have AI responses read aloud for better accessibility
+- **Multi-modal Learning**: Perfect for visual, auditory, and kinesthetic learners
 
 ## Example Questions to Ask
 
@@ -85,15 +100,20 @@ A modern web application that teaches users how to play common get-together game
 ```
 src/
 ├── app/
-│   ├── api/chat/         # Gemini API integration
-|   ├── game/[id]/
-│       └── page.tsx      # Game tutorial page
+│   ├── api/
+│   │   ├── chat/         # Gemini API integration
+│   │   └── transcribe/   # Audio transcription endpoint
+│   ├── game/[id]/
+│   │   └── page.tsx      # Game tutorial page
 │   ├── globals.css       # Global styles
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Main page
 ├── components/
+│   ├── ChatInterface.tsx # AI chat component
+│   ├── FavoritesBar.tsx  # Favorites management
 │   ├── FilterBar.tsx     # Search and filter component
-│   └── GameCard.tsx      # Game display component
+│   ├── GameCard.tsx      # Game display component
+│   └── SponsoredBar.tsx  # Sponsored content component
 ├── data/
 │   ├── index.ts          # Game data index file
 │   └── games/            # Individual game JSON files
@@ -102,7 +122,12 @@ src/
 │       ├── monopoly.json
 │       ├── two-truths-one-lie.json
 │       ├── poker.json
-│       └── scavenger-hunt.json
+│       ├── scavenger-hunt.json
+│       └── cassino-madeira.json
+├── hooks/
+│   ├── useAudioRecording.ts  # Audio recording functionality
+│   ├── useFavorites.ts       # Favorites management
+│   └── useTTS.ts            # Text-to-speech functionality
 └── types/
     └── game.ts           # TypeScript definitions
 ```
@@ -140,6 +165,12 @@ This project is optimized for Cloudflare Workers deployment:
 
 ```bash
 npm run deploy
+```
+
+You can also preview the deployment locally:
+
+```bash
+npm run preview
 ```
 
 ### Other Platforms
