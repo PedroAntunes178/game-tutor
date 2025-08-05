@@ -58,17 +58,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex justify-center items-center gap-3 mb-4">
-            <div className="p-3 bg-blue-600 rounded-full">
-              <GamepadIcon size={32} className="text-white" />
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="flex justify-center items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <div className="p-2 sm:p-3 bg-blue-600 rounded-full">
+              <GamepadIcon size={24} className="sm:w-8 sm:h-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900">Game Tutor</h1>
-            <Sparkles size={24} className="text-yellow-500" />
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900">Game Tutor</h1>
+            <Sparkles size={20} className="sm:w-6 sm:h-6 text-yellow-500" />
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
             Learn how to play your favorite games with AI-powered tutorials. 
             From card games to board games, we&apos;ll teach you the rules and strategies step by step!
           </p>
@@ -101,7 +101,7 @@ export default function Home() {
         />
 
         {/* Games Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {filteredGames.map((game) => (
             <GameCard
               key={game.id}
@@ -114,19 +114,19 @@ export default function Home() {
         </div>
 
         {filteredGames.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-8 sm:py-12">
             <div className="text-gray-400 mb-4">
-              <GamepadIcon size={64} className="mx-auto" />
+              <GamepadIcon size={48} className="sm:w-16 sm:h-16 mx-auto" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">No games found</h3>
-            <p className="text-gray-500">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-600 mb-2">No games found</h3>
+            <p className="text-sm sm:text-base text-gray-500 px-4">
               Try adjusting your search terms or filters to find more games.
             </p>
           </div>
         )}
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-gray-500 text-sm">
+        <footer className="mt-12 sm:mt-16 text-center text-gray-500 text-xs sm:text-sm">
           <p>Game Tutor - Powered by Gemini AI</p>
           <p className="mt-1">Learn, Play, and Have Fun! 🎮</p>
         </footer>

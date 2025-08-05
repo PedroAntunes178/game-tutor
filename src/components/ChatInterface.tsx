@@ -207,46 +207,53 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
   if (!isOpen) return null;
 
   return (
-    <div className="w-full h-[500px] flex flex-col">
+    <div className="w-full h-[500px] sm:h-[600px] flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-            <Bot className="w-6 h-6 text-blue-600" />
+      <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <Bot className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
           </div>
-          <div>
-            <h3 className="font-semibold text-gray-900">AI Tutor</h3>
-            <p className="text-sm text-gray-500">Learning {game.name}</p>
+          <div className="min-w-0 flex-1">
+            <h3 className="font-semibold text-gray-900 text-sm sm:text-base">AI Tutor</h3>
+            <p className="text-xs sm:text-sm text-gray-500 truncate">Learning {game.name}</p>
           </div>
         </div>
         <button
           onClick={handleClose}
-          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+          className="p-2 sm:p-2 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0 touch-manipulation"
         >
-          <X size={20} className="text-gray-500" />
+          <X size={18} className="sm:w-5 sm:h-5 text-gray-500" />
         </button>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
         {messages.slice(1).map((message) => (
           <div
             key={message.id}
-            className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            className={`flex gap-2 sm:gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {message.role === 'model' && (
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Bot size={16} className="text-blue-600" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <Bot size={12} className="sm:w-4 sm:h-4 text-blue-600" />
               </div>
             )}
-            <div className="flex flex-col max-w-[90%]">
+            <div className="flex flex-col max-w-[85%] sm:max-w-[90%] min-w-0">
               <div
-                className={`p-3 rounded-lg ${message.role === 'user'
+                className={`p-2.5 sm:p-3 rounded-lg text-sm sm:text-base break-words ${message.role === 'user'
                   ? 'bg-blue-600 text-white ml-auto'
                   : 'bg-gray-100 text-gray-900'
                   }`}
               >
-                <ReactMarkdown>{message.content}</ReactMarkdown>
+                <ReactMarkdown 
+                  components={{
+                    p: ({ children }) => <p className="break-words">{children}</p>,
+                    li: ({ children }) => <li className="break-words">{children}</li>,
+                  }}
+                >
+                  {message.content}
+                </ReactMarkdown>
               </div>
               {message.role === 'model' && isSupported && (
                 <div className="flex justify-start mt-1">
@@ -258,33 +265,33 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
                         speak(message.content, message.id);
                       }
                     }}
-                    className="flex items-center gap-1 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors"
+                    className="flex items-center gap-1 px-2 py-1.5 sm:py-1 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors touch-manipulation"
                     title={currentSpeakingId === message.id && isSpeaking ? "Stop speaking" : "Read aloud"}
                   >
                     {currentSpeakingId === message.id && isSpeaking ? (
-                      <VolumeX size={14} />
+                      <VolumeX size={12} className="sm:w-3.5 sm:h-3.5" />
                     ) : (
-                      <Volume2 size={14} />
+                      <Volume2 size={12} className="sm:w-3.5 sm:h-3.5" />
                     )}
-                    <span>{currentSpeakingId === message.id && isSpeaking ? "Stop" : "Listen"}</span>
+                    <span className="hidden sm:inline">{currentSpeakingId === message.id && isSpeaking ? "Stop" : "Listen"}</span>
                   </button>
                 </div>
               )}
             </div>
             {message.role === 'user' && (
-              <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <User size={16} className="text-gray-600" />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <User size={12} className="sm:w-4 sm:h-4 text-gray-600" />
               </div>
             )}
           </div>
         ))}
         {isLoading && (
-          <div className="flex gap-3 justify-start">
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <Bot size={16} className="text-blue-600" />
+          <div className="flex gap-2 sm:gap-3 justify-start">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <Bot size={12} className="sm:w-4 sm:h-4 text-blue-600" />
             </div>
-            <div className="bg-gray-100 text-gray-900 p-3 rounded-lg flex items-center gap-2">
-              <Loader2 size={16} className="animate-spin" />
+            <div className="bg-gray-100 text-gray-900 p-2.5 sm:p-3 rounded-lg flex items-center gap-2">
+              <Loader2 size={14} className="sm:w-4 sm:h-4 animate-spin" />
             </div>
           </div>
         )}
@@ -292,16 +299,16 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
       </div>
 
       {/* Input */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="border-t border-gray-200 p-3 sm:p-4">
         {errorMessage && (
-          <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+          <div className="mb-3 p-2.5 sm:p-3 bg-red-50 border border-red-200 rounded-lg">
             <div className="flex items-center gap-2">
-              <X size={16} className="text-red-600" />
-              <span className="text-sm text-red-700">{errorMessage}</span>
+              <X size={14} className="sm:w-4 sm:h-4 text-red-600 flex-shrink-0" />
+              <span className="text-xs sm:text-sm text-red-700 break-words">{errorMessage}</span>
             </div>
           </div>
         )}
-        <form onSubmit={sendMessage} className="flex gap-2">
+        <form onSubmit={sendMessage} className="flex gap-1.5 sm:gap-2">
           <input
             type="text"
             value={input}
@@ -313,7 +320,7 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
                   ? "Transcribing audio..."
                   : "Ask me anything about the game..."
             }
-            className={`flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${isRecording
+            className={`flex-1 min-w-0 border rounded-lg px-2.5 sm:px-3 py-2 sm:py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${isRecording
                 ? 'border-red-300 bg-red-50'
                 : isTranscribing
                   ? 'border-yellow-300 bg-yellow-50'
@@ -325,24 +332,24 @@ Please start by giving me a warm welcome and a brief overview of the game. Then 
             type="button"
             onClick={handleAudioRecording}
             disabled={isLoading || isTranscribing}
-            className={`p-2 rounded-lg transition-all duration-200 ${isRecording
+            className={`p-2 sm:p-2 rounded-lg transition-all duration-200 touch-manipulation flex-shrink-0 ${isRecording
                 ? 'bg-red-600 text-white hover:bg-red-700 animate-pulse shadow-lg shadow-red-200'
                 : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
               } disabled:opacity-50 disabled:cursor-not-allowed`}
             title={isRecording ? "Stop recording" : "Start voice recording"}
           >
             {isRecording ? (
-              <Square size={20} className="animate-pulse" />
+              <Square size={16} className="sm:w-5 sm:h-5 animate-pulse" />
             ) : (
-              <Mic size={20} />
+              <Mic size={16} className="sm:w-5 sm:h-5" />
             )}
           </button>
           <button
             type="submit"
             disabled={!input.trim() || isLoading || isRecording || isTranscribing}
-            className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-blue-600 text-white p-2 sm:p-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation flex-shrink-0"
           >
-            <Send size={20} />
+            <Send size={16} className="sm:w-5 sm:h-5" />
           </button>
         </form>
       </div>
