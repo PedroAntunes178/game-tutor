@@ -3,6 +3,7 @@
 import { Search, Sparkles, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import games from '@/data';
+import { ChatMessage } from '@/types/game';
 
 interface FilterBarProps {
   searchQuery: string;
@@ -29,7 +30,7 @@ export default function FilterBar({
 }: FilterBarProps) {
   const [isAsking, setIsAsking] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
-  
+
   const categories = [
     { value: '', label: 'All Categories' },
     { value: 'card-games', label: 'Card Games' },
@@ -52,25 +53,18 @@ export default function FilterBar({
     }
 
     setIsAsking(true);
-    
+
     try {
-      // Create a comprehensive prompt with all game data
+      // Create a concise summary of game data to reduce token count
       const gamesData = games.map(game => ({
         id: game.id,
         name: game.name,
-        category: game.category,
-        minPlayers: game.minPlayers,
-        maxPlayers: game.maxPlayers,
-        ageRange: game.ageRange,
-        duration: game.duration,
-        difficulty: game.difficulty,
         description: game.description,
-        equipment: game.equipment,
-        basicRules: game.basicRules,
+        category: game.category,
         tags: game.tags
       }));
 
-      const initialPrompt = `You are a game recommendation assistant. Here is the complete database of available games:
+      const initialPrompt = `You are a game recommendation assistant. Here is a summary of available games:
 
 ${JSON.stringify(gamesData, null, 2)}
 
@@ -80,14 +74,20 @@ User's description: "${searchQuery}"
 
 Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top recommendation. Do not include any explanation or additional text - just the game ID.`;
 
+      const filterMessage: ChatMessage = {
+        id: Date.now().toString(),
+        role: 'user',
+        content: initialPrompt,
+        timestamp: new Date()
+      };
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          initialPrompt,
-          messages: []
+          messages: [filterMessage]
         }),
       });
 
@@ -97,7 +97,7 @@ Please respond with ONLY the game ID (like "uno", "charades", etc.) of your top 
 
       const data = await response.json() as { content: string };
       const gameId = data.content?.trim();
-      
+
       // Verify the game exists in our database
       const foundGame = games.find(game => game.id === gameId);
       if (foundGame) {
