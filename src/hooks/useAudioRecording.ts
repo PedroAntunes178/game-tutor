@@ -45,6 +45,28 @@ export function useAudioRecording(): UseAudioRecordingReturn {
     }
   }, []);
 
+  const transcribeAudio = useCallback(async (audioBlob: Blob): Promise<string> => {
+    try {
+      const formData = new FormData();
+      formData.append('audio', audioBlob, 'recording.webm');
+
+      const response = await fetch('/api/transcribe', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to transcribe audio');
+      }
+
+      const data = await response.json() as { transcription: string };
+      return data.transcription;
+    } catch (error) {
+      console.error('Error transcribing audio:', error);
+      throw new Error('Failed to transcribe audio. Please try again.');
+    }
+  }, []);
+
   const stopRecording = useCallback(async (): Promise<string> => {
     return new Promise(async (resolve, reject) => {
       const mediaRecorder = mediaRecorderRef.current;
@@ -77,29 +99,7 @@ export function useAudioRecording(): UseAudioRecordingReturn {
 
       mediaRecorder.stop();
     });
-  }, []);
-
-  const transcribeAudio = useCallback(async (audioBlob: Blob): Promise<string> => {
-    try {
-      const formData = new FormData();
-      formData.append('audio', audioBlob, 'recording.webm');
-
-      const response = await fetch('/api/transcribe', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to transcribe audio');
-      }
-
-      const data = await response.json() as { transcription: string };
-      return data.transcription;
-    } catch (error) {
-      console.error('Error transcribing audio:', error);
-      throw new Error('Failed to transcribe audio. Please try again.');
-    }
-  }, []);
+  }, [transcribeAudio]);
 
   const recordAndTranscribe = useCallback(async (): Promise<string> => {
     if (isRecording) {
