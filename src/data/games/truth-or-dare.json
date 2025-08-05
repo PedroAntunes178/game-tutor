@@ -1,0 +1,28 @@
+{
+  "id": "truth-or-dare",
+  "name": "Truth or Dare",
+  "description": "Truth or Dare? is a party game requiring two or more players. Players are given the choice between answering a question truthfully, or performing a 'dare', both of which are set by the other players.",
+  "category": "get-together-games",
+  "minPlayers": 2,
+  "maxPlayers": 20,
+  "ageRange": "13+",
+  "duration": "15-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None"
+  ],
+  "basicRules": [
+    "Players sit in a circle.",
+    "One player asks another player, 'Truth or Dare?'",
+    "If the player chooses 'truth', they must answer a question truthfully.",
+    "If the player chooses 'dare', they must perform a task.",
+    "After answering the question or performing the dare, that player asks another player 'Truth or Dare?'.",
+    "The game continues for as long as the players want."
+  ],
+  "tags": ["party", "no-materials", "getting-to-know-you"],
+  "tips": [
+    "Know your limits and don't feel pressured to do anything you are not comfortable with.",
+    "Be creative with your truths and dares.",
+    "The point of the game is to have fun, so keep it light-hearted."
+  ]
+}

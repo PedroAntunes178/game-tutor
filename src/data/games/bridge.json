@@ -1,0 +1,32 @@
+{
+  "id": "bridge",
+  "name": "Bridge",
+  "description": "Bridge is a trick-taking card game using a standard 52-card deck. It is played by four players in two competing partnerships, with partners sitting opposite each other around a table. Millions of people play bridge worldwide in clubs, tournaments, online and with friends at home, making it one of the world's most popular card games.",
+  "category": "card-games",
+  "minPlayers": 4,
+  "maxPlayers": 4,
+  "ageRange": "16+",
+  "duration": "1-3 hours",
+  "difficulty": "Hard",
+  "equipment": [
+    "Standard 52-card deck"
+  ],
+  "basicRules": [
+    "The game consists of two parts: the auction (or bidding) and the play.",
+    "First, all 52 cards are dealt out, so each player has 13 cards.",
+    "The auction begins with the dealer. Each player can either make a bid, pass, double, or redouble.",
+    "A bid consists of a number from 1 to 7, and a suit (or 'no trump'). The bid represents the number of tricks the partnership commits to winning, over and above 6 tricks, with the named suit as trump.",
+    "The auction ends when three players in a row pass. The final bid becomes the 'contract'.",
+    "The player who made the first bid in the suit of the contract is the 'declarer'. The declarer's partner is the 'dummy'.",
+    "The player to the left of the declarer makes the 'opening lead'. The dummy then lays their cards face up on the table, and the declarer plays both their own hand and the dummy's hand.",
+    "Play proceeds as in other trick-taking games. Players must follow suit if they can.",
+    "If the declarer's side wins the number of tricks in the contract, they score points. If they fail, the other side scores points.",
+    "The game is usually played in 'rubbers', with a rubber being the best of three games. A game is won by the first team to score 100 or more points for successful contracts."
+  ],
+  "tags": ["trick-taking", "partnership", "strategy", "bidding"],
+  "tips": [
+    "Bidding is the most complex part of the game. It's important to communicate with your partner through your bids.",
+    "Card counting is a very useful skill in Bridge.",
+    "Pay attention to the opening lead, as it can give you a lot of information about the hand."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "phase-10",
+  "name": "Phase 10",
+  "description": "Phase 10 is a card game created by Kenneth Johnson and sold by Mattel. It is based on a variant of rummy known as Contract Rummy. The game is named after the ten phases, or melds, that a player must advance through in order to win.",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 6,
+  "ageRange": "8+",
+  "duration": "45-90 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Phase 10 deck of cards"
+  ],
+  "basicRules": [
+    "Each player is dealt 10 cards. The rest of the deck is placed face down to form a draw pile. The top card is turned over to start a discard pile.",
+    "The player to the left of the dealer goes first. A turn consists of drawing a card, either from the draw pile or the discard pile, and then discarding a card.",
+    "The goal is to complete the current 'phase'. The first phase is two sets of three.",
+    "Once a player has completed their phase, they can 'hit' on other players who have also completed their phase. This means adding to their existing sets or runs.",
+    "The hand ends when one player 'goes out' by getting rid of all of their cards.",
+    "Players who completed their phase move on to the next phase. Players who did not must try to complete the same phase again in the next hand.",
+    "The first player to complete all ten phases wins the game."
+  ],
+  "tags": ["rummy-style", "phases", "sets", "runs"],
+  "tips": [
+    "Focus on completing your phase first.",
+    "Pay attention to what other players are discarding.",
+    "Going out is not always the best move if it means other players will complete their phase."
+  ]
+}

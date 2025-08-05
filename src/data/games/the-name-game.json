@@ -1,0 +1,28 @@
+{
+  "id": "the-name-game",
+  "name": "The Name Game",
+  "description": "The Name Game is a simple icebreaker game that helps people learn each other's names. Each person says their name along with an adjective that starts with the same letter.",
+  "category": "icebreaker-games",
+  "minPlayers": 5,
+  "maxPlayers": 30,
+  "ageRange": "All ages",
+  "duration": "10-20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None"
+  ],
+  "basicRules": [
+    "Players sit in a circle.",
+    "The first person says their name and an adjective that starts with the same letter (e.g., 'Jumping Jack').",
+    "The next person has to remember the first person's name and adjective, and then say their own (e.g., 'Jumping Jack, and I'm Creative Cathy').",
+    "This continues around the circle, with each person having to remember the names and adjectives of all the people who came before them.",
+    "If someone makes a mistake, the group can help them out.",
+    "The game ends when it gets back to the first person, who has to try to remember everyone's name and adjective."
+  ],
+  "tags": ["memory", "getting-to-know-you", "no-materials"],
+  "tips": [
+    "Choose an adjective that is easy to remember.",
+    "Use gestures or actions to help people remember your adjective.",
+    "Don't worry if you make a mistake, the point is to have fun and learn names."
+  ]
+}

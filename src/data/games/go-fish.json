@@ -1,0 +1,29 @@
+{
+  "id": "go-fish",
+  "name": "Go Fish",
+  "description": "Go Fish is a simple card game for two or more players. The goal is to win the most 'books' of cards. A book is any four of a kind, such as four kings or four aces.",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 5,
+  "ageRange": "4+",
+  "duration": "15 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Standard 52-card deck"
+  ],
+  "basicRules": [
+    "If there are 2-3 players, each player is dealt 7 cards. If there are 4-5 players, each player is dealt 5 cards. The rest of the cards are placed face down in a pile. This is the 'fish pond'.",
+    "The player to the left of the dealer starts. On your turn, you ask another player for a specific rank of card (e.g., 'Do you have any eights?'). You must have at least one card of the rank you are asking for.",
+    "If the player you asked has any cards of that rank, they must give them all to you. You then get another turn.",
+    "If the player you asked does not have any cards of that rank, they say 'Go Fish!'. You must then draw a card from the fish pond.",
+    "If you draw the card you asked for, you show it to the other players and get another turn. If you draw a different card, your turn ends.",
+    "When you collect all four cards of one rank, you show the book to the other players and place it face up in front of you.",
+    "The game ends when all 13 books have been made. The player with the most books wins."
+  ],
+  "tags": ["kids", "matching", "memory"],
+  "tips": [
+    "Pay attention to what cards other players are asking for.",
+    "Try to remember which players have which cards.",
+    "It's often a good idea to ask for a card that you have more than one of."
+  ]
+}

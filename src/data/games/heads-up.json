@@ -1,0 +1,28 @@
+{
+  "id": "heads-up",
+  "name": "Heads Up!",
+  "description": "Heads Up! is a fun and hilarious game by Ellen DeGeneres that she plays on her show. It's a party game where you have to guess the word on the card that's on your head from your friends' clues before the timer runs out.",
+  "category": "get-together-games",
+  "minPlayers": 2,
+  "maxPlayers": 20,
+  "ageRange": "12+",
+  "duration": "10-20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Heads Up! app on a smartphone"
+  ],
+  "basicRules": [
+    "One player holds the phone to their forehead, with the screen facing out.",
+    "The other players give clues to help the player with the phone guess the word on the screen.",
+    "If the player guesses the word correctly, they tilt the phone down to get a new word.",
+    "If the player wants to pass, they tilt the phone up.",
+    "The goal is to guess as many words as possible in the time limit (usually one minute).",
+    "The game has many different categories to choose from, such as celebrities, movies, animals, and more."
+  ],
+  "tags": ["guessing-game", "party", "mobile-app"],
+  "tips": [
+    "Give clear and concise clues.",
+    "Use gestures and sound effects to help.",
+    "Don't be afraid to be silly!"
+  ]
+}

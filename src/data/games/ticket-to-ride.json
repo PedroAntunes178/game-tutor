@@ -1,0 +1,29 @@
+{
+  "id": "ticket-to-ride",
+  "name": "Ticket to Ride",
+  "description": "Ticket to Ride is a cross-country train adventure in which players collect and play matching train cards to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 5,
+  "ageRange": "8+",
+  "duration": "30-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Ticket to Ride board game set"
+  ],
+  "basicRules": [
+    "Each player is dealt a number of train car cards and destination tickets. Destination tickets show two cities that the player must try to connect.",
+    "On your turn, you can either draw more train car cards, draw more destination tickets, or claim a route on the board.",
+    "To claim a route, you must play a set of train car cards that match the color and length of the route.",
+    "When you claim a route, you place your colored trains on it and score points based on the length of the route.",
+    "The game ends when one player has two or fewer of their colored trains left.",
+    "Players then reveal their destination tickets. If they successfully connected the cities on their ticket, they get the points indicated on the ticket. If they failed, they lose those points.",
+    "The player with the most points wins the game."
+  ],
+  "tags": ["family-friendly", "route-building", "set-collection"],
+  "tips": [
+    "Try to complete your destination tickets, but don't be afraid to draw more if you have a good network of routes.",
+    "Longer routes are worth more points, but they are also harder to claim.",
+    "Pay attention to what routes other players are claiming, as they might be trying to block you."
+  ]
+}

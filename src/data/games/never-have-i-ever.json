@@ -1,0 +1,27 @@
+{
+  "id": "never-have-i-ever",
+  "name": "Never Have I Ever",
+  "description": "Never Have I Ever is a popular party game. Players take turns making statements about things they have never done. Any player who has done the thing in the statement must take a penalty, usually a drink.",
+  "category": "icebreaker-games",
+  "minPlayers": 4,
+  "maxPlayers": 20,
+  "ageRange": "17+",
+  "duration": "15-30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Drinks (optional)"
+  ],
+  "basicRules": [
+    "Players sit in a circle.",
+    "One player starts by saying 'Never have I ever...' followed by something they have never done.",
+    "Anyone who has done that thing must take a drink.",
+    "The game continues with the next person in the circle making a statement.",
+    "The game can also be played with points instead of drinks. For example, players could start with 10 points and lose a point each time they have done something."
+  ],
+  "tags": ["party", "drinking-game", "getting-to-know-you"],
+  "tips": [
+    "Be honest!",
+    "Start with tame statements and get more adventurous as the game goes on.",
+    "This game can be a great way to learn surprising things about your friends."
+  ]
+}

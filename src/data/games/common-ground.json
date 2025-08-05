@@ -1,0 +1,27 @@
+{
+  "id": "common-ground",
+  "name": "Common Ground",
+  "description": "Common Ground is an icebreaker game where the goal is for small groups of people to find things they have in common.",
+  "category": "icebreaker-games",
+  "minPlayers": 6,
+  "maxPlayers": 30,
+  "ageRange": "All ages",
+  "duration": "15-20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None"
+  ],
+  "basicRules": [
+    "Divide the players into small groups of 3-5 people.",
+    "The goal for each group is to find a certain number of things that all of them have in common. For example, you could ask them to find 5 things they all have in common.",
+    "The things they have in common cannot be obvious things, like 'we are all at this party' or 'we are all human'.",
+    "The first group to find the required number of commonalities wins the game.",
+    "After the game, you can have each group share some of the interesting things they found they had in common."
+  ],
+  "tags": ["team-building", "getting-to-know-you", "no-materials"],
+  "tips": [
+    "Encourage groups to be creative and think outside the box.",
+    "Give the groups a time limit to make it more challenging.",
+    "This game is a great way to promote teamwork and communication."
+  ]
+}

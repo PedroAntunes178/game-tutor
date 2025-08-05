@@ -1,0 +1,32 @@
+{
+  "id": "euchre",
+  "name": "Euchre",
+  "description": "Euchre is a trick-taking card game most commonly played with four people in two partnerships with a deck of 24, 28, or 32 standard playing cards. It is the game responsible for introducing the joker into modern card packs.",
+  "category": "card-games",
+  "minPlayers": 4,
+  "maxPlayers": 4,
+  "ageRange": "13+",
+  "duration": "30 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "A deck of 24 cards (using 9, 10, J, Q, K, A of all four suits)"
+  ],
+  "basicRules": [
+    "Players are in two partnerships. Partners sit opposite each other.",
+    "Five cards are dealt to each player. The top card of the remaining deck is turned up.",
+    "Players bid on whether they want to make the turned-up suit trump. If a player thinks they can win at least three tricks with that suit as trump, they can 'order it up'.",
+    "If no one orders up the card, there is a second round of bidding where players can name any other suit as trump.",
+    "The team that chooses the trump suit is called the 'makers'. The other team is the 'defenders'.",
+    "The player to the left of the dealer leads the first trick. Players must follow suit if they can.",
+    "The highest card of the suit led wins the trick, unless a trump is played, in which case the highest trump card wins.",
+    "The 'right bower' (the jack of the trump suit) is the highest trump. The 'left bower' (the other jack of the same color) is the second-highest trump.",
+    "The makers score 1 point if they win 3 or 4 tricks, and 2 points if they win all 5 tricks. If the makers fail to win 3 tricks, they are 'euchred', and the defenders score 2 points.",
+    "The first team to score 10 points wins the game."
+  ],
+  "tags": ["trick-taking", "partnership", "strategy"],
+  "tips": [
+    "Knowing when to order up trump is key.",
+    "Pay attention to what cards your partner plays.",
+    "If you are the dealer's partner, it's often a good idea to order up trump."
+  ]
+}

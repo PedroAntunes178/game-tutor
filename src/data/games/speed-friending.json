@@ -1,0 +1,31 @@
+{
+  "id": "speed-friending",
+  "name": "Speed Friending",
+  "description": "Speed Friending is like speed dating, but for making friends. It's a great way to meet a lot of new people in a short amount of time.",
+  "category": "icebreaker-games",
+  "minPlayers": 10,
+  "maxPlayers": 50,
+  "ageRange": "All ages",
+  "duration": "30-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Chairs",
+    "A timer",
+    "Conversation starter questions (optional)"
+  ],
+  "basicRules": [
+    "Arrange the chairs in two rows facing each other.",
+    "Half of the players sit in one row, and the other half sit in the other row.",
+    "Set a timer for a few minutes (e.g., 3-5 minutes).",
+    "Players talk to the person sitting opposite them until the timer goes off.",
+    "When the timer goes off, one row of players moves down one seat, and the conversations start again.",
+    "This continues until everyone has had a chance to talk to everyone else in the other row.",
+    "At the end, you can have a more informal mingling session where people can continue conversations with the people they found interesting."
+  ],
+  "tags": ["getting-to-know-you", "large-group", "interactive"],
+  "tips": [
+    "Have some conversation starter questions ready in case people get stuck.",
+    "Encourage people to exchange contact information if they want to.",
+    "Keep the atmosphere light and fun."
+  ]
+}

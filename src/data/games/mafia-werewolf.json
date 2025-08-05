@@ -1,0 +1,27 @@
+{
+  "id": "mafia-werewolf",
+  "name": "Mafia / Werewolf",
+  "description": "Mafia (also known as Werewolf) is a social deduction game, created by Dimitry Davidoff in 1986. The game models a conflict between two groups: an informed minority (the mafia or the werewolves), and an uninformed majority (the innocents). At the start of the game, each player is secretly assigned a role affiliated with one of these teams.",
+  "category": "get-together-games",
+  "minPlayers": 7,
+  "maxPlayers": 20,
+  "ageRange": "13+",
+  "duration": "30-90 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "A deck of cards to assign roles (or a dedicated Mafia/Werewolf game set)"
+  ],
+  "basicRules": [
+    "The game has two phases: night and day.",
+    "During the night phase, the mafia (or werewolves) secretly choose an innocent to 'kill'.",
+    "During the day phase, the 'killed' player is revealed, and the remaining players debate the identities of the mafia members and vote to eliminate a suspect.",
+    "The game continues until either all of the mafia have been eliminated (the innocents win) or the mafia outnumber the innocents (the mafia win).",
+    "There are many variations of the game with different roles and rules."
+  ],
+  "tags": ["social-deduction", "party", "bluffing"],
+  "tips": [
+    "If you are an innocent, pay attention to how people are voting and what they are saying.",
+    "If you are in the mafia, try to blend in and cast suspicion on other players.",
+    "Don't be afraid to lie!"
+  ]
+}

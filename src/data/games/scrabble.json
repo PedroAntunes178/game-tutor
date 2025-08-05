@@ -1,0 +1,28 @@
+{
+  "id": "scrabble",
+  "name": "Scrabble",
+  "description": "Scrabble is a word game in which two to four players score points by placing tiles, each bearing a single letter, onto a game board which is divided into a 15×15 grid of squares.",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 4,
+  "ageRange": "8+",
+  "duration": "50 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "Scrabble board game set"
+  ],
+  "basicRules": [
+    "Each player draws seven letter tiles from a bag.",
+    "The first player forms a word with two or more of their tiles and places it on the board to read either across or down with one letter on the center square.",
+    "Players then take turns adding words to the board. Each new word must connect to a word already on the board.",
+    "A player completes a turn by counting and announcing their score for that turn. They then draw new tiles to replenish their hand to seven tiles.",
+    "The game ends when all tiles have been drawn and one player uses their last tile, or when all possible plays have been made.",
+    "The player with the highest score wins the game."
+  ],
+  "tags": ["word-game", "vocabulary", "strategy"],
+  "tips": [
+    "Learn the two-letter words, they are very useful.",
+    "Look for opportunities to use the premium squares on the board (double letter score, triple word score, etc.).",
+    "Don't be afraid to change your tiles if you have a bad hand."
+  ]
+}

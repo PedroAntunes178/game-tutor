@@ -1,0 +1,30 @@
+{
+  "id": "beer-pong",
+  "name": "Beer Pong",
+  "description": "Beer Pong is a drinking game in which players throw a ping pong ball across a table with the intent of landing the ball in a cup of beer on the other end. The game typically consists of opposing teams of two or more players per side with 6 or 10 cups set up in a triangle formation on each side.",
+  "category": "get-together-games",
+  "minPlayers": 2,
+  "maxPlayers": 4,
+  "ageRange": "21+",
+  "duration": "15-30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "A table",
+    "Ping pong balls",
+    "Plastic cups",
+    "Beer (or another drink)"
+  ],
+  "basicRules": [
+    "Set up 10 cups in a triangle formation at each end of the table.",
+    "Fill the cups with beer or another drink.",
+    "Players take turns throwing a ping pong ball into the other team's cups.",
+    "If a ball lands in a cup, the other team must drink the contents of that cup and remove it from the table.",
+    "The first team to eliminate all of the other team's cups wins the game."
+  ],
+  "tags": ["party", "drinking-game", "team-game"],
+  "tips": [
+    "There are many different house rules for beer pong, so make sure everyone is on the same page before you start playing.",
+    "You can play with or without alcohol.",
+    "Have fun and drink responsibly."
+  ]
+}

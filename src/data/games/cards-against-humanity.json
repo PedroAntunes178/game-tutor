@@ -1,0 +1,28 @@
+{
+  "id": "cards-against-humanity",
+  "name": "Cards Against Humanity",
+  "description": "Cards Against Humanity is a hilarious and often inappropriate party game for horrible people. In each round, one player asks a question from a black card, and everyone else answers with their funniest white card.",
+  "category": "card-games",
+  "minPlayers": 4,
+  "maxPlayers": 20,
+  "ageRange": "17+",
+  "duration": "30-90 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Cards Against Humanity set (black and white cards)"
+  ],
+  "basicRules": [
+    "To start the game, each player draws ten White Cards.",
+    "The person who most recently pooped begins as the Card Czar and plays a Black Card. The Card Czar reads the question or fill-in-the-blank phrase on the Black Card out loud.",
+    "Everyone else answers the question or fills in the blank by passing one White Card, face down, to the Card Czar.",
+    "The Card Czar shuffles all of the answers and reads each card combination out loud to the group.",
+    "The Card Czar then picks the funniest play, and whoever submitted it gets one Awesome Point.",
+    "After the round, a new player becomes the Card Czar, and everyone draws back up to ten White Cards."
+  ],
+  "tags": ["party", "humor", "adult"],
+  "tips": [
+    "Play with people who have a similar sense of humor.",
+    "Don't be afraid to be offensive; it's the point of the game.",
+    "Some cards are funnier in certain contexts. Know your audience."
+  ]
+}

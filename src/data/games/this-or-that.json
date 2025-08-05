@@ -1,0 +1,26 @@
+{
+  "id": "this-or-that",
+  "name": "This or That?",
+  "description": "This or That? is a simple and fun game where players have to choose between two options. It's a great way to get to know people's preferences and start conversations.",
+  "category": "icebreaker-games",
+  "minPlayers": 2,
+  "maxPlayers": 100,
+  "ageRange": "All ages",
+  "duration": "10-20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None (or a list of 'this or that' questions)"
+  ],
+  "basicRules": [
+    "One person asks a 'this or that' question (e.g., 'Cats or dogs?').",
+    "Everyone chooses one of the two options.",
+    "You can have people physically move to different sides of the room to show their choice, or just have them say their choice out loud.",
+    "The game can be played with a set of pre-written questions, or players can make up their own questions."
+  ],
+  "tags": ["conversation-starter", "getting-to-know-you", "no-materials"],
+  "tips": [
+    "Keep the questions simple and fun.",
+    "Ask follow-up questions to start conversations.",
+    "This game can be a good way to find people with similar interests."
+  ]
+}

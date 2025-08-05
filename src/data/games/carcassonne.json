@@ -1,0 +1,27 @@
+{
+  "id": "carcassonne",
+  "name": "Carcassonne",
+  "description": "Carcassonne is a tile-placement game in which players draw and place a tile with a piece of southern French landscape on it. The tile might feature a city, a road, a cloister, grassland or some combination thereof, and it must be placed adjacent to tiles that have already been played, in such a way that cities are connected to cities, roads to roads, etcetera.",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 5,
+  "ageRange": "7+",
+  "duration": "30-45 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Carcassonne board game set"
+  ],
+  "basicRules": [
+    "On your turn, you draw a land tile and place it adjacent to a tile that is already on the table.",
+    "After placing a tile, you can choose to place one of your 'meeples' (followers) on it. You can place a meeple on a city, a road, a cloister, or a field.",
+    "When a city, road, or cloister is completed, the meeple on it scores points for its owner and is returned to the player's supply.",
+    "The game ends when the last tile has been placed. At the end of the game, meeples on incomplete features and in fields score points.",
+    "The player with the most points wins the game."
+  ],
+  "tags": ["tile-placement", "strategy", "family-friendly"],
+  "tips": [
+    "Think carefully about where you place your tiles and your meeples.",
+    "You can try to share in other players' features to get points.",
+    "Don't forget about farmers, they can be worth a lot of points at the end of the game."
+  ]
+}

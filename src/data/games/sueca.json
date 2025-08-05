@@ -1,0 +1,53 @@
+{
+  "id": "sueca",
+  "name": "Suéca",
+  "category": "card-games",
+  "minPlayers": 4,
+  "maxPlayers": 4,
+  "ageRange": "12+",
+  "duration": "20-40 minutes",
+  "difficulty": "Medium",
+  "description": "Suéca is a traditional Portuguese trick-taking card game played in teams of two. Players aim to win tricks containing high-point cards and accumulate more than 60 points per round. The game is known for its strategic play, use of trump suits, and cultural popularity throughout Portugal and its former colonies.",
+  "equipment": ["Standard 52-card deck with 8s, 9s, and 10s removed (40 cards total)"],
+  "basicRules": [
+    "The game is played by 4 players in fixed partnerships (2 vs 2), sitting opposite each other.",
+    "Each player is dealt 10 cards. The first card dealt to the dealer is revealed; its suit becomes the trump suit (trunfo).",
+    "Players take turns playing one card per trick, starting with the player to the dealer's right.",
+    "Players must follow the lead suit if possible; otherwise, they may play any card, including trump.",
+    "The highest card of the lead suit wins the trick, unless a trump is played — in which case, the highest trump wins.",
+    "Tricks won by each team are collected and used for scoring at the end of the round."
+  ],
+  "cardRanking": {
+    "order": ["Ace", "7", "King", "Jack", "Queen", "6", "5", "4", "3", "2"],
+    "points": {
+      "Ace": 11,
+      "7": 10,
+      "King": 4,
+      "Jack": 3,
+      "Queen": 2,
+      "6": 0,
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0
+    }
+  },
+  "scoring": {
+    "regularWin": "61-89 points = 1 game point",
+    "strongWin": "90-119 points = 2 game points",
+    "totalWin": "120 points (all tricks) = 4 game points and immediate match win"
+  },
+  "winningCondition": "The first team to reach 4 game points wins the match. Each round gives 1-4 points based on trick totals.",
+  "variants": [
+    "No-Trump Variant: Players play without a trump suit.",
+    "5-Player Rotation: One player sits out per round, rotating in.",
+    "Brazilian Sueca: Slight regional rule differences in dealing and scoring."
+  ],
+  "strategyTips": [
+    "Pay attention to cards played and try to remember what's been used.",
+    "Use trump cards strategically — don't waste them early unless necessary.",
+    "Communication between partners is indirect; play in a way your partner can understand your intentions.",
+    "Prioritize winning tricks that contain high-point cards (Aces and 7s)."
+  ],
+  "tags": ["traditional", "Portuguese", "team-play", "trick-taking", "strategy", "Madeira", "Azores", "Lisbon", "Angola", "Brazil"]
+}

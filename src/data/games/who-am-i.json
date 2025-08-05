@@ -1,0 +1,28 @@
+{
+  "id": "who-am-i",
+  "name": "Who Am I? (Post-It Game)",
+  "description": "Who Am I? is a guessing game where players have a name of a famous person or character stuck to their forehead and have to guess who it is by asking yes/no questions.",
+  "category": "icebreaker-games",
+  "minPlayers": 4,
+  "maxPlayers": 20,
+  "ageRange": "All ages",
+  "duration": "15-30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Post-it notes",
+    "Pens"
+  ],
+  "basicRules": [
+    "Each player writes the name of a famous person or character on a post-it note and sticks it on the forehead of the person to their left, without them seeing it.",
+    "On your turn, you ask the other players yes/no questions to try to figure out who you are.",
+    "For example, you could ask 'Am I a man?', 'Am I a fictional character?', 'Am I a singer?'.",
+    "If you get a 'yes' answer, you can ask another question. If you get a 'no' answer, your turn ends.",
+    "The first person to guess who they are wins the game."
+  ],
+  "tags": ["guessing-game", "party", "pop-culture"],
+  "tips": [
+    "Choose well-known people or characters.",
+    "Start with broad questions and then get more specific.",
+    "Listen to the questions other people are asking, as it might give you clues about who you are."
+  ]
+}

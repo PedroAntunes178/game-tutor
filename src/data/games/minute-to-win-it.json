@@ -1,0 +1,28 @@
+{
+  "id": "minute-to-win-it",
+  "name": "Minute to Win It",
+  "description": "Minute to Win It is a game show that has been adapted into a popular party game. The game consists of a series of 60-second challenges that players must complete using household objects.",
+  "category": "get-together-games",
+  "minPlayers": 2,
+  "maxPlayers": 20,
+  "ageRange": "All ages",
+  "duration": "30-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Various household objects (depending on the challenges)"
+  ],
+  "basicRules": [
+    "Set up a series of challenges that can be completed in one minute.",
+    "Players can either compete individually or in teams.",
+    "Each player or team gets one minute to try to complete the challenge.",
+    "If they succeed, they get points. If they fail, they get nothing.",
+    "The player or team with the most points at the end of all the challenges wins the game.",
+    "There are many ideas for Minute to Win It challenges available online."
+  ],
+  "tags": ["party", "challenges", "active"],
+  "tips": [
+    "Choose challenges that are appropriate for the age and skill level of your players.",
+    "Have all the materials ready before you start the game.",
+    "Cheer on the players and create a fun and energetic atmosphere."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "pandemic",
+  "name": "Pandemic",
+  "description": "In Pandemic, a cooperative board game, you and your fellow players are members of a disease control team. You must work together to develop cures and prevent disease outbreaks, before four deadly diseases plague the world.",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 4,
+  "ageRange": "8+",
+  "duration": "45 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "Pandemic board game set"
+  ],
+  "basicRules": [
+    "Each player has a unique role with special abilities.",
+    "On your turn, you can take up to four actions. Actions include moving, treating diseases, building a research station, sharing knowledge, and curing a disease.",
+    "After you take your actions, you draw two player cards. Some of these cards are 'epidemic' cards, which cause the diseases to spread faster.",
+    "The players win if they cure all four diseases. The players lose if there are too many outbreaks, if they run out of disease cubes, or if they run out of player cards.",
+    "Pandemic is a cooperative game, so players must work together to win."
+  ],
+  "tags": ["cooperative", "strategy", "problem-solving"],
+  "tips": [
+    "Communication is key. Talk to your teammates and plan your turns together.",
+    "Make good use of your special abilities.",
+    "Try to control the outbreaks, as they can cause you to lose the game quickly."
+  ]
+}

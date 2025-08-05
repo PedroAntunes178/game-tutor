@@ -1,0 +1,26 @@
+{
+  "id": "would-you-rather",
+  "name": "Would You Rather",
+  "description": "Would You Rather is a conversation or party game that poses a dilemma in the form of a question beginning with 'would you rather'. The dilemma can be between two supposedly good options, two bad options, or two options that are just thought-provoking.",
+  "category": "icebreaker-games",
+  "minPlayers": 2,
+  "maxPlayers": 100,
+  "ageRange": "All ages",
+  "duration": "10-30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None (or a list of questions)"
+  ],
+  "basicRules": [
+    "One person asks a 'Would you rather...' question to the group.",
+    "Each person takes a turn to answer the question and explain their reasoning.",
+    "There are no right or wrong answers, the goal is to have fun and get to know each other.",
+    "The game can be played with a set of pre-written questions, or players can make up their own questions."
+  ],
+  "tags": ["conversation-starter", "getting-to-know-you", "no-materials"],
+  "tips": [
+    "Be creative with your questions.",
+    "Listen to other people's answers and ask follow-up questions.",
+    "Keep the questions light-hearted and fun."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "taboo",
+  "name": "Taboo",
+  "description": "Taboo is a word, guessing, and party game. The objective of the game is for a player to have their partners guess the word on the player's card without using the word itself or five additional words listed on the card.",
+  "category": "get-together-games",
+  "minPlayers": 4,
+  "maxPlayers": 10,
+  "ageRange": "13+",
+  "duration": "20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Taboo board game set"
+  ],
+  "basicRules": [
+    "Players divide into two teams.",
+    "One player from a team is the 'giver'. The giver takes a card and tries to get their teammates to guess the word at the top of the card.",
+    "The giver cannot say any of the 'taboo' words listed on the card.",
+    "The giver's team has a limited amount of time (usually one minute) to guess as many words as possible.",
+    "One point is awarded for each correct guess. One point is deducted for each time a taboo word is used or for passing on a card.",
+    "The teams take turns, and the team with the most points at the end of the game wins."
+  ],
+  "tags": ["word-game", "guessing-game", "party", "team-game"],
+  "tips": [
+    "Think of synonyms for the word you are trying to describe.",
+    "Use gestures and sound effects to help your team guess.",
+    "If you are stuck on a word, it's better to pass than to risk using a taboo word."
+  ]
+}

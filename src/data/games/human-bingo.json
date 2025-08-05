@@ -1,0 +1,28 @@
+{
+  "id": "human-bingo",
+  "name": "Human Bingo",
+  "description": "Human Bingo is an icebreaker game that helps people get to know each other. Each player gets a bingo card with squares that have descriptions of people. The goal is to find people who match the descriptions and get them to sign the corresponding square.",
+  "category": "icebreaker-games",
+  "minPlayers": 10,
+  "maxPlayers": 100,
+  "ageRange": "All ages",
+  "duration": "15-30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Human Bingo cards (one for each player)",
+    "Pens or pencils"
+  ],
+  "basicRules": [
+    "Give each player a Human Bingo card and a pen.",
+    "Players walk around the room and talk to other people to find someone who matches one of the descriptions on their card.",
+    "When a player finds someone who matches a description, they ask that person to sign the corresponding square on their card.",
+    "A person can only sign another player's card once.",
+    "The first player to get a 'bingo' (a line of signed squares, either horizontally, vertically, or diagonally) wins the game."
+  ],
+  "tags": ["getting-to-know-you", "large-group", "interactive"],
+  "tips": [
+    "Encourage players to talk to people they don't know.",
+    "Make the descriptions on the bingo cards interesting and fun.",
+    "Have a prize for the winner."
+  ]
+}

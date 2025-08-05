@@ -1,0 +1,28 @@
+{
+  "id": "risk",
+  "name": "Risk",
+  "description": "Risk is a strategy board game of diplomacy, conflict and conquest for two to six players. The standard version is played on a board depicting a political map of the Earth, divided into forty-two territories, which are grouped into six continents.",
+  "category": "board-games",
+  "minPlayers": 2,
+  "maxPlayers": 6,
+  "ageRange": "10+",
+  "duration": "1-8 hours",
+  "difficulty": "Medium",
+  "equipment": [
+    "Risk board game set"
+  ],
+  "basicRules": [
+    "Players control armies with which they attempt to capture territories from other players.",
+    "The game is won by 'global domination', i.e., controlling all 42 territories on the board.",
+    "On your turn, you get reinforcements based on the number of territories you control, and for controlling entire continents.",
+    "You can then attack other players' territories. Attacks are resolved by rolling dice.",
+    "If you successfully capture a territory, you can move some of your armies into it.",
+    "At the end of your turn, you can fortify your position by moving armies between your connected territories."
+  ],
+  "tags": ["strategy", "war-game", "dice-rolling"],
+  "tips": [
+    "Controlling continents is key to getting more reinforcements.",
+    "Don't spread your armies too thin.",
+    "Forming alliances with other players can be a good strategy, but be careful who you trust."
+  ]
+}

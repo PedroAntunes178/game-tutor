@@ -1,0 +1,27 @@
+{
+  "id": "telephone",
+  "name": "Telephone (Whisper Game)",
+  "description": "Telephone, also known as the Whisper Game, is a classic party game. A player whispers a message to another player, who then whispers it to the next player, and so on. The last player announces the message to the entire group. The fun comes from the way the message gets distorted as it is passed along.",
+  "category": "get-together-games",
+  "minPlayers": 6,
+  "maxPlayers": 20,
+  "ageRange": "All ages",
+  "duration": "5-10 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "None"
+  ],
+  "basicRules": [
+    "Players sit in a line or a circle.",
+    "The first person comes up with a message and whispers it to the next person in line.",
+    "That person then whispers the message to the next person, and so on.",
+    "The last person in line says the message out loud.",
+    "The original message is then revealed, and everyone has a good laugh at how much it has changed."
+  ],
+  "tags": ["party", "no-materials", "communication"],
+  "tips": [
+    "Choose a long and complicated message to make the game more fun.",
+    "Don't worry about getting the message exactly right, the mistakes are what make the game funny.",
+    "This game is a great way to show how easily communication can break down."
+  ]
+}

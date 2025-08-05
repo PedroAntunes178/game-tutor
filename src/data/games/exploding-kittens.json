@@ -1,0 +1,32 @@
+{
+  "id": "exploding-kittens",
+  "name": "Exploding Kittens",
+  "description": "Exploding Kittens is a highly-strategic, kitty-powered version of Russian Roulette. Players draw cards until someone draws an Exploding Kitten, at which point they explode, they are dead, and they are out of the game — unless that player has a Defuse card, which can defuse the Kitten using things like laser pointers, belly rubs, and catnip sandwiches.",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 5,
+  "ageRange": "7+",
+  "duration": "15 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Exploding Kittens card deck"
+  ],
+  "basicRules": [
+    "To start, remove all the Exploding Kittens (4) and Defuse Cards (6) from the deck.",
+    "Shuffle the remaining deck and deal 7 cards to each player.",
+    "Each player gets 1 Defuse Card. So each player starts with a total of 8 cards.",
+    "Insert the remaining Defuse Cards back into the deck.",
+    "Insert enough Exploding Kittens back into the deck so that there is 1 fewer than the number of players. Remove any extra Exploding Kittens from the game.",
+    "Shuffle the deck and place it face down in the middle of the table.",
+    "Pick a player to go first. Play goes clockwise.",
+    "On your turn, you can play as many cards as you like from your hand, or none at all. Then, draw a card from the top of the draw pile to end your turn.",
+    "If you draw an Exploding Kitten, you must show it immediately. Unless you have a Defuse card, you're out of the game.",
+    "The last player who hasn't exploded wins the game."
+  ],
+  "tags": ["party", "humor", "family-friendly"],
+  "tips": [
+    "Try to save your Defuse cards.",
+    "Use your other cards to avoid drawing, or to force other players to draw multiple cards.",
+    "Keep track of how many Exploding Kittens are left in the deck."
+  ]
+}

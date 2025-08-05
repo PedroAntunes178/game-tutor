@@ -1,0 +1,33 @@
+{
+  "id": "spades",
+  "name": "Spades",
+  "description": "Spades is a trick-taking card game devised in the United States in the 1930s. It can be played as either a partnership or solo game. The object is to take at least the number of tricks that were bid before play of the hand began.",
+  "category": "card-games",
+  "minPlayers": 4,
+  "maxPlayers": 4,
+  "ageRange": "13+",
+  "duration": "30-60 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "Standard 52-card deck"
+  ],
+  "basicRules": [
+    "Players are seated in partnerships, with partners sitting across from each other.",
+    "The entire deck is dealt, so each player gets 13 cards.",
+    "Each player, in turn, bids the number of tricks they expect to take. The bids of the partners are added together.",
+    "The player to the dealer's left leads the first trick. Any card may be led, except a spade.",
+    "Players must follow suit if they can. If a player cannot follow suit, they may play any card.",
+    "A trick is won by the player who played the highest card of the led suit, or if a spade was played, the highest spade.",
+    "The winner of a trick leads the next trick.",
+    "Spades cannot be led until a spade has been played on a previous trick (this is called 'breaking spades').",
+    "The hand is over when all 13 tricks have been played.",
+    "To make their contract, a partnership must win at least the number of tricks they bid. For each trick won, they score 10 points. If they fail to make their contract, they lose 10 points for each trick they bid.",
+    "The game is typically played to 500 points."
+  ],
+  "tags": ["trick-taking", "partnership", "strategy"],
+  "tips": [
+    "Be careful with your bidding. Overbidding can be costly.",
+    "Try to remember which cards have been played.",
+    "Don't lead spades until they have been broken."
+  ]
+}

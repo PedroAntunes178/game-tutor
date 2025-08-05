@@ -1,0 +1,28 @@
+{
+  "id": "catan",
+  "name": "Catan",
+  "description": "In Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources to build up their civilizations to get to 10 victory points and win the game.",
+  "category": "board-games",
+  "minPlayers": 3,
+  "maxPlayers": 4,
+  "ageRange": "10+",
+  "duration": "60-120 min",
+  "difficulty": "Medium",
+  "equipment": [
+    "Catan board game set"
+  ],
+  "basicRules": [
+    "The board is set up with hexagonal tiles representing different types of terrain. Each tile gets a number token.",
+    "Each player starts with two settlements and two roads.",
+    "On your turn, you roll two dice. The sum of the dice determines which tiles produce resources. Any player with a settlement or city adjacent to a producing tile gets a resource card of that type.",
+    "You can then trade resource cards with other players or with the bank.",
+    "You can use your resource cards to build new roads, settlements, or cities, or to buy development cards.",
+    "The first player to reach 10 victory points wins the game. Victory points are earned from settlements, cities, the 'longest road', the 'largest army', and certain development cards."
+  ],
+  "tags": ["strategy", "trading", "resource-management"],
+  "tips": [
+    "The placement of your starting settlements is crucial.",
+    "Trading is a key part of the game. Be open to trading with other players.",
+    "Don't forget about development cards, they can be very powerful."
+  ]
+}

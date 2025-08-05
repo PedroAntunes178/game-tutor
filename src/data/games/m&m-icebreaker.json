@@ -1,0 +1,28 @@
+{
+  "id": "m&m-icebreaker",
+  "name": "M&M Icebreaker",
+  "description": "The M&M Icebreaker is a fun and tasty way to get to know people. Each color of M&M corresponds to a different question or topic.",
+  "category": "icebreaker-games",
+  "minPlayers": 5,
+  "maxPlayers": 20,
+  "ageRange": "All ages",
+  "duration": "15-20 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "A large bag of M&Ms",
+    "A list of questions corresponding to each color of M&M"
+  ],
+  "basicRules": [
+    "Pass the bag of M&Ms around and tell everyone to take as many as they want.",
+    "Once everyone has their M&Ms, reveal the list of questions for each color.",
+    "For each M&M they took, each person has to answer the question corresponding to its color.",
+    "For example, red could be 'your favorite hobby', green could be 'your favorite food', yellow could be 'your favorite movie', etc.",
+    "Each person takes a turn to share their answers with the group."
+  ],
+  "tags": ["getting-to-know-you", "food", "fun"],
+  "tips": [
+    "Make the questions fun and interesting.",
+    "You can use other types of candy with different colors as well.",
+    "This game is a great way to get people talking and sharing about themselves."
+  ]
+}

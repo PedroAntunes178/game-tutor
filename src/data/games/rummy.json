@@ -1,0 +1,29 @@
+{
+  "id": "rummy",
+  "name": "Rummy",
+  "description": "Rummy is a card game where the objective is to form melds of matching cards, which can be either sets (three or four of a kind of the same rank) or runs (three or more cards in sequence of the same suit).",
+  "category": "card-games",
+  "minPlayers": 2,
+  "maxPlayers": 6,
+  "ageRange": "8+",
+  "duration": "30 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Standard 52-card deck (two decks for more players)"
+  ],
+  "basicRules": [
+    "The dealer deals cards to each player. The number of cards dealt depends on the number of players.",
+    "The rest of the cards are placed in a face-down pile, forming the stock. The top card of the stock is turned face up and placed beside the stock to form the discard pile.",
+    "The player to the left of the dealer begins. On each turn, a player must draw a card, either from the stock or the discard pile.",
+    "After drawing, the player can meld cards by laying them face up on the table in sets or runs.",
+    "To end their turn, the player must discard one card to the discard pile, face up.",
+    "The game ends when a player has no cards left in their hand, which can be achieved either by melding or discarding. This is called 'going out'.",
+    "Once a player goes out, the other players add up the value of the cards still in their hands. The player who went out wins the hand and scores points from the other players."
+  ],
+  "tags": ["matching", "sets", "runs"],
+  "tips": [
+    "Pay attention to what other players are discarding.",
+    "Try to get rid of your high-value cards early.",
+    "Sometimes it's better to hold onto a card to prevent another player from going out."
+  ]
+}

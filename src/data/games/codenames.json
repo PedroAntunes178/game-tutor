@@ -1,0 +1,25 @@
+{
+  "name": "Codenames",
+  "description": "Codenames is a game of guessing which 'codenames' (i.e., words) in a set are related to a hint-word given by another player. Players split into two teams: red and blue. One player of each team is selected as the team's spymaster; the others are field operatives.",
+  "category": "Board Game",
+  "players": {
+    "min": 4,
+    "max": 8
+  },
+  "materials": [
+    "Codenames board game set"
+  ],
+  "instructions": [
+    "Twenty-five codename cards are laid out in a 5x5 grid.",
+    "The two spymasters are given a key card that shows them which cards belong to their team, which are neutral, and which one is the assassin.",
+    "The spymasters take turns giving one-word clues to their teammates. The clue should relate to one or more of the words on the grid that belong to their team.",
+    "The spymaster also gives a number, which tells their teammates how many words on the grid relate to the clue.",
+    "The teammates try to guess the correct words. If they guess a word that belongs to their team, they can keep guessing. If they guess a neutral word or a word that belongs to the other team, their turn ends. If they guess the assassin, their team immediately loses.",
+    "The first team to guess all of their words wins the game."
+  ],
+  "tips": [
+    "As the spymaster, try to give clues that link multiple words.",
+    "As a guesser, don't be afraid to discuss the clue with your teammates.",
+    "Be careful not to guess the assassin!"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "jackbox-games",
+  "name": "Jackbox Games",
+  "description": "Jackbox Games is a series of party video games developed by Jackbox Games. The games are designed to be played in large groups and are controlled by players using their phones, tablets, or computers as controllers.",
+  "category": "get-together-games",
+  "minPlayers": 1,
+  "maxPlayers": 8,
+  "ageRange": "13+",
+  "duration": "15-30 min per game",
+  "difficulty": "Easy",
+  "equipment": [
+    "A computer or console to run the game",
+    "A TV or screen for everyone to see",
+    "Phones, tablets, or computers for each player"
+  ],
+  "basicRules": [
+    "One person starts the game on a computer or console.",
+    "All other players go to jackbox.tv on their devices and enter the room code to join the game.",
+    "The games are all different, but they usually involve drawing, writing, or trivia.",
+    "The games are designed to be funny and creative, and there are no right or wrong answers.",
+    "Some of the most popular Jackbox games include You Don't Know Jack, Quiplash, and Drawful."
+  ],
+  "tags": ["party", "video-game", "humor", "creative"],
+  "tips": [
+    "Be creative and have fun with your answers.",
+    "Don't be afraid to be silly.",
+    "The games are more fun with a big group of people."
+  ]
+}

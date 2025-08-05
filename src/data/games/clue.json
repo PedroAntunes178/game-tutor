@@ -1,0 +1,28 @@
+{
+  "id": "clue",
+  "name": "Clue (Cluedo)",
+  "description": "Clue is a murder mystery game for three to six players. The object of the game is to determine who murdered the game's victim, where the crime took place, and which weapon was used.",
+  "category": "board-games",
+  "minPlayers": 3,
+  "maxPlayers": 6,
+  "ageRange": "8+",
+  "duration": "15-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Clue board game set"
+  ],
+  "basicRules": [
+    "One card from each of the three categories (suspect, weapon, and room) is chosen at random and put into a special envelope, so that no one knows the solution.",
+    "The remaining cards are distributed among the players.",
+    "Players roll a die to move around the board, which represents the rooms of a mansion.",
+    "When a player enters a room, they can make a 'suggestion', naming a suspect, a weapon, and the room they are in.",
+    "The other players must then try to disprove the suggestion by showing a card from their hand that matches one of the three named items.",
+    "When a player thinks they know the solution, they can make an 'accusation'. They look at the cards in the envelope. If they are correct, they win the game. If they are wrong, they are out of the game."
+  ],
+  "tags": ["mystery", "deduction", "family-friendly"],
+  "tips": [
+    "Keep track of the suggestions that are made and the cards that are shown.",
+    "Use the process of elimination to figure out the solution.",
+    "Don't make an accusation until you are sure you are correct."
+  ]
+}

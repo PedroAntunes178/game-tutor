@@ -1,0 +1,28 @@
+{
+  "id": "pictionary",
+  "name": "Pictionary",
+  "description": "Pictionary is a charades-inspired word-guessing game. Players try to identify specific words from their partners' drawings.",
+  "category": "get-together-games",
+  "minPlayers": 4,
+  "maxPlayers": 16,
+  "ageRange": "8+",
+  "duration": "30-60 min",
+  "difficulty": "Easy",
+  "equipment": [
+    "Pictionary board game set (or a whiteboard/paper, markers/pens, and a list of words)"
+  ],
+  "basicRules": [
+    "Players divide into two teams.",
+    "One player from a team is chosen to be the first 'picturist'. The picturist draws a card with a word on it and has to draw clues for that word.",
+    "The picturist cannot use letters, numbers, or verbal cues.",
+    "Their team has a limited amount of time (usually one minute) to guess the word.",
+    "If the team guesses the word correctly, they get to roll a die and move their token on the game board.",
+    "The first team to reach the final space on the board and correctly guess a final word wins the game."
+  ],
+  "tags": ["drawing", "guessing-game", "party", "team-game"],
+  "tips": [
+    "Don't try to draw a masterpiece. Simple drawings are often more effective.",
+    "Think of common symbols and icons that can represent ideas.",
+    "Break down complex words into smaller, drawable parts."
+  ]
+}
