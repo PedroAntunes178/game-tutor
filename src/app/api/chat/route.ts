@@ -11,39 +11,27 @@ interface ChatMessage {
 }
 
 interface RequestBody {
-  initialPrompt: string;
   messages: ChatMessage[];
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json() as RequestBody;
-    const { initialPrompt, messages } = body;
+    const { messages } = body;
 
     // Validate that we have either an initial prompt or messages
-    if (!initialPrompt
-    ) {
+    if (!messages || messages.length === 0) {
       return NextResponse.json(
-        { error: 'The initialPrompt must be provided' },
+        { error: 'The messages must be provided' },
         { status: 400 }
       );
     }
 
-    // Always include the initial prompt as the first message to maintain context
-    // followed by any conversation messages
-    let contents = [{
-      role: 'user',
-      parts: [{ text: initialPrompt }]
-    }];
-
-    // Add the conversation messages after the initial prompt
-    if (messages.length > 0) {
-      const conversationContents = messages.map(message => ({
-        role: message.role,
-        parts: [{ text: message.content }]
-      }));
-      contents = contents.concat(conversationContents);
-    }
+    // Concatenate messages into a single content string
+    const contents = messages.map(message => ({
+      role: message.role,
+      parts: [{ text: message.content }]
+    }));
 
     const response = await ai.models.generateContent({
       model: "gemma-3n-e4b-it",
