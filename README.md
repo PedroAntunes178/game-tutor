@@ -117,13 +117,7 @@ src/
 ├── data/
 │   ├── index.ts          # Game data index file
 │   └── games/            # Individual game JSON files
-│       ├── uno.json
-│       ├── charades.json
-│       ├── monopoly.json
-│       ├── two-truths-one-lie.json
-│       ├── poker.json
-│       ├── scavenger-hunt.json
-│       └── cassino-madeira.json
+│       └── *.json
 ├── hooks/
 │   ├── useAudioRecording.ts  # Audio recording functionality
 │   ├── useFavorites.ts       # Favorites management
@@ -191,7 +185,7 @@ The app can be deployed to any platform that supports Next.js:
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is copyright Pedro Antunes. In the future this might be changed for an open-source licence.
 
 ## Support
 
